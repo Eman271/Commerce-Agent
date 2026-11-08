@@ -1,0 +1,573 @@
+sku,product_id,name,category,color,size,original_price,price,stock,is_sale,description
+SKU0001,P001,Linen Kurta,Men Kurta,Black,S,2499,2499,5,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0002,P001,Linen Kurta,Men Kurta,Black,M,2499,2499,12,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0003,P001,Linen Kurta,Men Kurta,Black,L,2499,2499,1,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0004,P001,Linen Kurta,Men Kurta,Black,XL,2499,2499,22,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0005,P001,Linen Kurta,Men Kurta,White,S,2499,2499,0,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0006,P001,Linen Kurta,Men Kurta,White,M,2499,2499,5,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0007,P001,Linen Kurta,Men Kurta,White,L,2499,2499,0,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0008,P001,Linen Kurta,Men Kurta,White,XL,2499,2499,1,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0009,P001,Linen Kurta,Men Kurta,Navy,S,2499,2499,25,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0010,P001,Linen Kurta,Men Kurta,Navy,M,2499,2499,18,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0011,P001,Linen Kurta,Men Kurta,Navy,L,2499,2499,3,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0012,P001,Linen Kurta,Men Kurta,Navy,XL,2499,2499,5,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0013,P001,Linen Kurta,Men Kurta,Grey,S,2499,2499,10,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0014,P001,Linen Kurta,Men Kurta,Grey,M,2499,2499,15,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0015,P001,Linen Kurta,Men Kurta,Grey,L,2499,2499,2,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0016,P001,Linen Kurta,Men Kurta,Grey,XL,2499,2499,15,False,"Breathable pure linen kurta, straight cut, ideal for summer and casual wear."
+SKU0017,P002,Cotton Kurta,Men Kurta,White,S,1999,1999,4,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0018,P002,Cotton Kurta,Men Kurta,White,M,1999,1999,0,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0019,P002,Cotton Kurta,Men Kurta,White,L,1999,1999,24,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0020,P002,Cotton Kurta,Men Kurta,White,XL,1999,1999,1,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0021,P002,Cotton Kurta,Men Kurta,Sky Blue,S,1999,1999,22,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0022,P002,Cotton Kurta,Men Kurta,Sky Blue,M,1999,1999,4,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0023,P002,Cotton Kurta,Men Kurta,Sky Blue,L,1999,1999,0,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0024,P002,Cotton Kurta,Men Kurta,Sky Blue,XL,1999,1999,3,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0025,P002,Cotton Kurta,Men Kurta,Beige,S,1999,1999,7,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0026,P002,Cotton Kurta,Men Kurta,Beige,M,1999,1999,0,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0027,P002,Cotton Kurta,Men Kurta,Beige,L,1999,1999,3,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0028,P002,Cotton Kurta,Men Kurta,Beige,XL,1999,1999,12,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0029,P002,Cotton Kurta,Men Kurta,Maroon,S,1999,1999,17,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0030,P002,Cotton Kurta,Men Kurta,Maroon,M,1999,1999,3,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0031,P002,Cotton Kurta,Men Kurta,Maroon,L,1999,1999,3,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0032,P002,Cotton Kurta,Men Kurta,Maroon,XL,1999,1999,3,False,"Soft cotton kurta with side pockets, easy daily wear."
+SKU0033,P003,Embroidered Kurta,Men Kurta,Black,S,3499,3499,25,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0034,P003,Embroidered Kurta,Men Kurta,Black,M,3499,3499,0,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0035,P003,Embroidered Kurta,Men Kurta,Black,L,3499,3499,22,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0036,P003,Embroidered Kurta,Men Kurta,Black,XL,3499,3499,10,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0037,P003,Embroidered Kurta,Men Kurta,Maroon,S,3499,3499,13,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0038,P003,Embroidered Kurta,Men Kurta,Maroon,M,3499,3499,25,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0039,P003,Embroidered Kurta,Men Kurta,Maroon,L,3499,3499,12,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0040,P003,Embroidered Kurta,Men Kurta,Maroon,XL,3499,3499,6,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0041,P003,Embroidered Kurta,Men Kurta,Green,S,3499,3499,1,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0042,P003,Embroidered Kurta,Men Kurta,Green,M,3499,3499,17,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0043,P003,Embroidered Kurta,Men Kurta,Green,L,3499,3499,2,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0044,P003,Embroidered Kurta,Men Kurta,Green,XL,3499,3499,23,False,Neck embroidery kurta suited for Eid and festive occasions.
+SKU0045,P004,Wash & Wear Kurta,Men Kurta,White,S,1799,1450,15,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0046,P004,Wash & Wear Kurta,Men Kurta,White,M,1799,1450,4,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0047,P004,Wash & Wear Kurta,Men Kurta,White,L,1799,1450,25,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0048,P004,Wash & Wear Kurta,Men Kurta,White,XL,1799,1450,13,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0049,P004,Wash & Wear Kurta,Men Kurta,Beige,S,1799,1450,3,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0050,P004,Wash & Wear Kurta,Men Kurta,Beige,M,1799,1450,18,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0051,P004,Wash & Wear Kurta,Men Kurta,Beige,L,1799,1450,17,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0052,P004,Wash & Wear Kurta,Men Kurta,Beige,XL,1799,1450,9,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0053,P004,Wash & Wear Kurta,Men Kurta,Grey,S,1799,1450,7,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0054,P004,Wash & Wear Kurta,Men Kurta,Grey,M,1799,1450,8,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0055,P004,Wash & Wear Kurta,Men Kurta,Grey,L,1799,1450,2,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0056,P004,Wash & Wear Kurta,Men Kurta,Grey,XL,1799,1450,18,True,"Wrinkle-resistant wash and wear fabric, no ironing needed."
+SKU0057,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,White,S,3299,3299,17,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0058,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,White,M,3299,3299,19,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0059,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,White,L,3299,3299,22,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0060,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,White,XL,3299,3299,5,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0061,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Black,S,3299,3299,8,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0062,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Black,M,3299,3299,22,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0063,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Black,L,3299,3299,25,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0064,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Black,XL,3299,3299,14,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0065,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Cream,S,3299,3299,19,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0066,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Cream,M,3299,3299,0,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0067,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Cream,L,3299,3299,13,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0068,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Cream,XL,3299,3299,10,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0069,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Grey,S,3299,3299,8,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0070,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Grey,M,3299,3299,14,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0071,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Grey,L,3299,3299,21,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0072,P005,Kameez Shalwar Cotton,Men Shalwar Kameez,Grey,XL,3299,3299,9,False,"Two-piece cotton kameez shalwar, classic collar style."
+SKU0073,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Navy,S,2899,2300,10,True,Durable wash and wear suit for office and daily use.
+SKU0074,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Navy,M,2899,2300,21,True,Durable wash and wear suit for office and daily use.
+SKU0075,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Navy,L,2899,2300,24,True,Durable wash and wear suit for office and daily use.
+SKU0076,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Navy,XL,2899,2300,5,True,Durable wash and wear suit for office and daily use.
+SKU0077,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Charcoal,S,2899,2300,3,True,Durable wash and wear suit for office and daily use.
+SKU0078,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Charcoal,M,2899,2300,14,True,Durable wash and wear suit for office and daily use.
+SKU0079,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Charcoal,L,2899,2300,2,True,Durable wash and wear suit for office and daily use.
+SKU0080,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Charcoal,XL,2899,2300,7,True,Durable wash and wear suit for office and daily use.
+SKU0081,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Brown,S,2899,2300,0,True,Durable wash and wear suit for office and daily use.
+SKU0082,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Brown,M,2899,2300,7,True,Durable wash and wear suit for office and daily use.
+SKU0083,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Brown,L,2899,2300,22,True,Durable wash and wear suit for office and daily use.
+SKU0084,P006,Kameez Shalwar Wash & Wear,Men Shalwar Kameez,Brown,XL,2899,2300,9,True,Durable wash and wear suit for office and daily use.
+SKU0085,P007,Waistcoat Classic,Men Waistcoat,Black,S,3999,3999,22,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0086,P007,Waistcoat Classic,Men Waistcoat,Black,M,3999,3999,4,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0087,P007,Waistcoat Classic,Men Waistcoat,Black,L,3999,3999,22,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0088,P007,Waistcoat Classic,Men Waistcoat,Black,XL,3999,3999,11,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0089,P007,Waistcoat Classic,Men Waistcoat,Navy,S,3999,3999,17,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0090,P007,Waistcoat Classic,Men Waistcoat,Navy,M,3999,3999,25,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0091,P007,Waistcoat Classic,Men Waistcoat,Navy,L,3999,3999,21,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0092,P007,Waistcoat Classic,Men Waistcoat,Navy,XL,3999,3999,12,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0093,P007,Waistcoat Classic,Men Waistcoat,Grey,S,3999,3999,3,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0094,P007,Waistcoat Classic,Men Waistcoat,Grey,M,3999,3999,0,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0095,P007,Waistcoat Classic,Men Waistcoat,Grey,L,3999,3999,23,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0096,P007,Waistcoat Classic,Men Waistcoat,Grey,XL,3999,3999,1,False,"Formal waistcoat with lining, pairs with kurta or shirt."
+SKU0097,P008,Jamawar Waistcoat,Men Waistcoat,Maroon,M,4999,4999,6,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0098,P008,Jamawar Waistcoat,Men Waistcoat,Maroon,L,4999,4999,1,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0099,P008,Jamawar Waistcoat,Men Waistcoat,Maroon,XL,4999,4999,7,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0100,P008,Jamawar Waistcoat,Men Waistcoat,Black,M,4999,4999,13,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0101,P008,Jamawar Waistcoat,Men Waistcoat,Black,L,4999,4999,11,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0102,P008,Jamawar Waistcoat,Men Waistcoat,Black,XL,4999,4999,23,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0103,P008,Jamawar Waistcoat,Men Waistcoat,Green,M,4999,4999,12,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0104,P008,Jamawar Waistcoat,Men Waistcoat,Green,L,4999,4999,18,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0105,P008,Jamawar Waistcoat,Men Waistcoat,Green,XL,4999,4999,1,False,Jamawar fabric waistcoat for weddings and formal events.
+SKU0106,P009,Polo T-Shirt,Men Western,Black,S,1499,1499,16,False,Cotton pique polo with ribbed collar.
+SKU0107,P009,Polo T-Shirt,Men Western,Black,M,1499,1499,19,False,Cotton pique polo with ribbed collar.
+SKU0108,P009,Polo T-Shirt,Men Western,Black,L,1499,1499,6,False,Cotton pique polo with ribbed collar.
+SKU0109,P009,Polo T-Shirt,Men Western,Black,XL,1499,1499,25,False,Cotton pique polo with ribbed collar.
+SKU0110,P009,Polo T-Shirt,Men Western,White,S,1499,1499,0,False,Cotton pique polo with ribbed collar.
+SKU0111,P009,Polo T-Shirt,Men Western,White,M,1499,1499,15,False,Cotton pique polo with ribbed collar.
+SKU0112,P009,Polo T-Shirt,Men Western,White,L,1499,1499,8,False,Cotton pique polo with ribbed collar.
+SKU0113,P009,Polo T-Shirt,Men Western,White,XL,1499,1499,2,False,Cotton pique polo with ribbed collar.
+SKU0114,P009,Polo T-Shirt,Men Western,Navy,S,1499,1499,9,False,Cotton pique polo with ribbed collar.
+SKU0115,P009,Polo T-Shirt,Men Western,Navy,M,1499,1499,13,False,Cotton pique polo with ribbed collar.
+SKU0116,P009,Polo T-Shirt,Men Western,Navy,L,1499,1499,7,False,Cotton pique polo with ribbed collar.
+SKU0117,P009,Polo T-Shirt,Men Western,Navy,XL,1499,1499,22,False,Cotton pique polo with ribbed collar.
+SKU0118,P009,Polo T-Shirt,Men Western,Olive,S,1499,1499,0,False,Cotton pique polo with ribbed collar.
+SKU0119,P009,Polo T-Shirt,Men Western,Olive,M,1499,1499,22,False,Cotton pique polo with ribbed collar.
+SKU0120,P009,Polo T-Shirt,Men Western,Olive,L,1499,1499,7,False,Cotton pique polo with ribbed collar.
+SKU0121,P009,Polo T-Shirt,Men Western,Olive,XL,1499,1499,12,False,Cotton pique polo with ribbed collar.
+SKU0122,P010,Graphic T-Shirt,Men Western,Black,S,1199,950,4,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0123,P010,Graphic T-Shirt,Men Western,Black,M,1199,950,17,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0124,P010,Graphic T-Shirt,Men Western,Black,L,1199,950,10,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0125,P010,Graphic T-Shirt,Men Western,Black,XL,1199,950,17,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0126,P010,Graphic T-Shirt,Men Western,White,S,1199,950,4,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0127,P010,Graphic T-Shirt,Men Western,White,M,1199,950,4,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0128,P010,Graphic T-Shirt,Men Western,White,L,1199,950,3,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0129,P010,Graphic T-Shirt,Men Western,White,XL,1199,950,1,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0130,P010,Graphic T-Shirt,Men Western,Grey,S,1199,950,22,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0131,P010,Graphic T-Shirt,Men Western,Grey,M,1199,950,0,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0132,P010,Graphic T-Shirt,Men Western,Grey,L,1199,950,6,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0133,P010,Graphic T-Shirt,Men Western,Grey,XL,1199,950,21,True,"Printed round-neck cotton t-shirt, regular fit."
+SKU0134,P011,Casual Shirt,Men Western,Sky Blue,S,2299,2299,21,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0135,P011,Casual Shirt,Men Western,Sky Blue,M,2299,2299,1,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0136,P011,Casual Shirt,Men Western,Sky Blue,L,2299,2299,7,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0137,P011,Casual Shirt,Men Western,Sky Blue,XL,2299,2299,12,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0138,P011,Casual Shirt,Men Western,White,S,2299,2299,23,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0139,P011,Casual Shirt,Men Western,White,M,2299,2299,1,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0140,P011,Casual Shirt,Men Western,White,L,2299,2299,18,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0141,P011,Casual Shirt,Men Western,White,XL,2299,2299,23,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0142,P011,Casual Shirt,Men Western,Beige,S,2299,2299,13,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0143,P011,Casual Shirt,Men Western,Beige,M,2299,2299,3,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0144,P011,Casual Shirt,Men Western,Beige,L,2299,2299,4,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0145,P011,Casual Shirt,Men Western,Beige,XL,2299,2299,3,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0146,P011,Casual Shirt,Men Western,Black,S,2299,2299,7,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0147,P011,Casual Shirt,Men Western,Black,M,2299,2299,0,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0148,P011,Casual Shirt,Men Western,Black,L,2299,2299,23,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0149,P011,Casual Shirt,Men Western,Black,XL,2299,2299,7,False,"Full sleeve cotton casual shirt, slim fit."
+SKU0150,P012,Denim Jeans Slim Fit,Men Western,Dark Blue,30,3199,3199,21,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0151,P012,Denim Jeans Slim Fit,Men Western,Dark Blue,32,3199,3199,3,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0152,P012,Denim Jeans Slim Fit,Men Western,Dark Blue,34,3199,3199,12,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0153,P012,Denim Jeans Slim Fit,Men Western,Dark Blue,36,3199,3199,10,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0154,P012,Denim Jeans Slim Fit,Men Western,Black,30,3199,3199,22,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0155,P012,Denim Jeans Slim Fit,Men Western,Black,32,3199,3199,24,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0156,P012,Denim Jeans Slim Fit,Men Western,Black,34,3199,3199,25,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0157,P012,Denim Jeans Slim Fit,Men Western,Black,36,3199,3199,22,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0158,P012,Denim Jeans Slim Fit,Men Western,Light Blue,30,3199,3199,1,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0159,P012,Denim Jeans Slim Fit,Men Western,Light Blue,32,3199,3199,9,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0160,P012,Denim Jeans Slim Fit,Men Western,Light Blue,34,3199,3199,1,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0161,P012,Denim Jeans Slim Fit,Men Western,Light Blue,36,3199,3199,9,False,"Stretch denim slim fit jeans, five pocket design."
+SKU0162,P013,Chino Trouser,Men Western,Khaki,30,2699,2699,2,False,"Cotton twill chino trouser, tapered fit."
+SKU0163,P013,Chino Trouser,Men Western,Khaki,32,2699,2699,11,False,"Cotton twill chino trouser, tapered fit."
+SKU0164,P013,Chino Trouser,Men Western,Khaki,34,2699,2699,13,False,"Cotton twill chino trouser, tapered fit."
+SKU0165,P013,Chino Trouser,Men Western,Khaki,36,2699,2699,13,False,"Cotton twill chino trouser, tapered fit."
+SKU0166,P013,Chino Trouser,Men Western,Navy,30,2699,2699,6,False,"Cotton twill chino trouser, tapered fit."
+SKU0167,P013,Chino Trouser,Men Western,Navy,32,2699,2699,0,False,"Cotton twill chino trouser, tapered fit."
+SKU0168,P013,Chino Trouser,Men Western,Navy,34,2699,2699,13,False,"Cotton twill chino trouser, tapered fit."
+SKU0169,P013,Chino Trouser,Men Western,Navy,36,2699,2699,0,False,"Cotton twill chino trouser, tapered fit."
+SKU0170,P013,Chino Trouser,Men Western,Black,30,2699,2699,9,False,"Cotton twill chino trouser, tapered fit."
+SKU0171,P013,Chino Trouser,Men Western,Black,32,2699,2699,13,False,"Cotton twill chino trouser, tapered fit."
+SKU0172,P013,Chino Trouser,Men Western,Black,34,2699,2699,4,False,"Cotton twill chino trouser, tapered fit."
+SKU0173,P013,Chino Trouser,Men Western,Black,36,2699,2699,18,False,"Cotton twill chino trouser, tapered fit."
+SKU0174,P014,Zip Hoodie,Men Winter,Black,S,3499,3499,8,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0175,P014,Zip Hoodie,Men Winter,Black,M,3499,3499,0,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0176,P014,Zip Hoodie,Men Winter,Black,L,3499,3499,9,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0177,P014,Zip Hoodie,Men Winter,Black,XL,3499,3499,16,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0178,P014,Zip Hoodie,Men Winter,Grey,S,3499,3499,9,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0179,P014,Zip Hoodie,Men Winter,Grey,M,3499,3499,6,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0180,P014,Zip Hoodie,Men Winter,Grey,L,3499,3499,6,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0181,P014,Zip Hoodie,Men Winter,Grey,XL,3499,3499,11,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0182,P014,Zip Hoodie,Men Winter,Navy,S,3499,3499,8,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0183,P014,Zip Hoodie,Men Winter,Navy,M,3499,3499,22,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0184,P014,Zip Hoodie,Men Winter,Navy,L,3499,3499,18,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0185,P014,Zip Hoodie,Men Winter,Navy,XL,3499,3499,9,False,Fleece-lined zip hoodie with kangaroo pocket.
+SKU0186,P015,Pullover Sweater,Men Winter,Maroon,S,2999,2400,12,True,"Soft knit pullover sweater, round neck."
+SKU0187,P015,Pullover Sweater,Men Winter,Maroon,M,2999,2400,10,True,"Soft knit pullover sweater, round neck."
+SKU0188,P015,Pullover Sweater,Men Winter,Maroon,L,2999,2400,5,True,"Soft knit pullover sweater, round neck."
+SKU0189,P015,Pullover Sweater,Men Winter,Maroon,XL,2999,2400,3,True,"Soft knit pullover sweater, round neck."
+SKU0190,P015,Pullover Sweater,Men Winter,Grey,S,2999,2400,18,True,"Soft knit pullover sweater, round neck."
+SKU0191,P015,Pullover Sweater,Men Winter,Grey,M,2999,2400,12,True,"Soft knit pullover sweater, round neck."
+SKU0192,P015,Pullover Sweater,Men Winter,Grey,L,2999,2400,1,True,"Soft knit pullover sweater, round neck."
+SKU0193,P015,Pullover Sweater,Men Winter,Grey,XL,2999,2400,6,True,"Soft knit pullover sweater, round neck."
+SKU0194,P015,Pullover Sweater,Men Winter,Black,S,2999,2400,12,True,"Soft knit pullover sweater, round neck."
+SKU0195,P015,Pullover Sweater,Men Winter,Black,M,2999,2400,4,True,"Soft knit pullover sweater, round neck."
+SKU0196,P015,Pullover Sweater,Men Winter,Black,L,2999,2400,12,True,"Soft knit pullover sweater, round neck."
+SKU0197,P015,Pullover Sweater,Men Winter,Black,XL,2999,2400,2,True,"Soft knit pullover sweater, round neck."
+SKU0198,P016,Woolen Shawl Men,Men Winter,Brown,Free,3299,3299,13,False,"Pure woolen shawl, warm and lightweight."
+SKU0199,P016,Woolen Shawl Men,Men Winter,Grey,Free,3299,3299,13,False,"Pure woolen shawl, warm and lightweight."
+SKU0200,P016,Woolen Shawl Men,Men Winter,Black,Free,3299,3299,21,False,"Pure woolen shawl, warm and lightweight."
+SKU0201,P017,Lawn 3-Piece Stitched,Women Stitched,Pink,S,4499,4499,22,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0202,P017,Lawn 3-Piece Stitched,Women Stitched,Pink,M,4499,4499,5,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0203,P017,Lawn 3-Piece Stitched,Women Stitched,Pink,L,4499,4499,3,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0204,P017,Lawn 3-Piece Stitched,Women Stitched,Pink,XL,4499,4499,3,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0205,P017,Lawn 3-Piece Stitched,Women Stitched,Mint,S,4499,4499,0,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0206,P017,Lawn 3-Piece Stitched,Women Stitched,Mint,M,4499,4499,16,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0207,P017,Lawn 3-Piece Stitched,Women Stitched,Mint,L,4499,4499,15,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0208,P017,Lawn 3-Piece Stitched,Women Stitched,Mint,XL,4499,4499,21,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0209,P017,Lawn 3-Piece Stitched,Women Stitched,Yellow,S,4499,4499,2,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0210,P017,Lawn 3-Piece Stitched,Women Stitched,Yellow,M,4499,4499,4,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0211,P017,Lawn 3-Piece Stitched,Women Stitched,Yellow,L,4499,4499,0,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0212,P017,Lawn 3-Piece Stitched,Women Stitched,Yellow,XL,4499,4499,22,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0213,P017,Lawn 3-Piece Stitched,Women Stitched,Sky Blue,S,4499,4499,11,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0214,P017,Lawn 3-Piece Stitched,Women Stitched,Sky Blue,M,4499,4499,7,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0215,P017,Lawn 3-Piece Stitched,Women Stitched,Sky Blue,L,4499,4499,15,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0216,P017,Lawn 3-Piece Stitched,Women Stitched,Sky Blue,XL,4499,4499,8,False,"Printed lawn shirt with dyed trouser and chiffon dupatta, stitched."
+SKU0217,P018,Lawn 2-Piece Stitched,Women Stitched,Peach,S,3299,3299,14,False,"Printed lawn shirt and trouser, stitched."
+SKU0218,P018,Lawn 2-Piece Stitched,Women Stitched,Peach,M,3299,3299,18,False,"Printed lawn shirt and trouser, stitched."
+SKU0219,P018,Lawn 2-Piece Stitched,Women Stitched,Peach,L,3299,3299,14,False,"Printed lawn shirt and trouser, stitched."
+SKU0220,P018,Lawn 2-Piece Stitched,Women Stitched,Peach,XL,3299,3299,11,False,"Printed lawn shirt and trouser, stitched."
+SKU0221,P018,Lawn 2-Piece Stitched,Women Stitched,Lilac,S,3299,3299,17,False,"Printed lawn shirt and trouser, stitched."
+SKU0222,P018,Lawn 2-Piece Stitched,Women Stitched,Lilac,M,3299,3299,10,False,"Printed lawn shirt and trouser, stitched."
+SKU0223,P018,Lawn 2-Piece Stitched,Women Stitched,Lilac,L,3299,3299,14,False,"Printed lawn shirt and trouser, stitched."
+SKU0224,P018,Lawn 2-Piece Stitched,Women Stitched,Lilac,XL,3299,3299,5,False,"Printed lawn shirt and trouser, stitched."
+SKU0225,P018,Lawn 2-Piece Stitched,Women Stitched,White,S,3299,3299,11,False,"Printed lawn shirt and trouser, stitched."
+SKU0226,P018,Lawn 2-Piece Stitched,Women Stitched,White,M,3299,3299,23,False,"Printed lawn shirt and trouser, stitched."
+SKU0227,P018,Lawn 2-Piece Stitched,Women Stitched,White,L,3299,3299,15,False,"Printed lawn shirt and trouser, stitched."
+SKU0228,P018,Lawn 2-Piece Stitched,Women Stitched,White,XL,3299,3299,19,False,"Printed lawn shirt and trouser, stitched."
+SKU0229,P018,Lawn 2-Piece Stitched,Women Stitched,Green,S,3299,3299,21,False,"Printed lawn shirt and trouser, stitched."
+SKU0230,P018,Lawn 2-Piece Stitched,Women Stitched,Green,M,3299,3299,10,False,"Printed lawn shirt and trouser, stitched."
+SKU0231,P018,Lawn 2-Piece Stitched,Women Stitched,Green,L,3299,3299,14,False,"Printed lawn shirt and trouser, stitched."
+SKU0232,P018,Lawn 2-Piece Stitched,Women Stitched,Green,XL,3299,3299,25,False,"Printed lawn shirt and trouser, stitched."
+SKU0233,P019,Cambric Co-ord Set,Women Stitched,Navy,S,3799,3799,7,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0234,P019,Cambric Co-ord Set,Women Stitched,Navy,M,3799,3799,12,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0235,P019,Cambric Co-ord Set,Women Stitched,Navy,L,3799,3799,12,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0236,P019,Cambric Co-ord Set,Women Stitched,Navy,XL,3799,3799,9,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0237,P019,Cambric Co-ord Set,Women Stitched,Maroon,S,3799,3799,0,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0238,P019,Cambric Co-ord Set,Women Stitched,Maroon,M,3799,3799,4,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0239,P019,Cambric Co-ord Set,Women Stitched,Maroon,L,3799,3799,7,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0240,P019,Cambric Co-ord Set,Women Stitched,Maroon,XL,3799,3799,25,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0241,P019,Cambric Co-ord Set,Women Stitched,Mustard,S,3799,3799,17,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0242,P019,Cambric Co-ord Set,Women Stitched,Mustard,M,3799,3799,12,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0243,P019,Cambric Co-ord Set,Women Stitched,Mustard,L,3799,3799,1,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0244,P019,Cambric Co-ord Set,Women Stitched,Mustard,XL,3799,3799,8,False,"Cambric printed shirt with matching trouser, suitable for winters."
+SKU0245,P020,Chiffon Party Wear,Women Stitched,Black,S,7999,7999,12,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0246,P020,Chiffon Party Wear,Women Stitched,Black,M,7999,7999,4,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0247,P020,Chiffon Party Wear,Women Stitched,Black,L,7999,7999,0,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0248,P020,Chiffon Party Wear,Women Stitched,Black,XL,7999,7999,1,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0249,P020,Chiffon Party Wear,Women Stitched,Emerald,S,7999,7999,19,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0250,P020,Chiffon Party Wear,Women Stitched,Emerald,M,7999,7999,22,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0251,P020,Chiffon Party Wear,Women Stitched,Emerald,L,7999,7999,19,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0252,P020,Chiffon Party Wear,Women Stitched,Emerald,XL,7999,7999,21,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0253,P020,Chiffon Party Wear,Women Stitched,Maroon,S,7999,7999,22,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0254,P020,Chiffon Party Wear,Women Stitched,Maroon,M,7999,7999,10,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0255,P020,Chiffon Party Wear,Women Stitched,Maroon,L,7999,7999,20,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0256,P020,Chiffon Party Wear,Women Stitched,Maroon,XL,7999,7999,12,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0257,P020,Chiffon Party Wear,Women Stitched,Pink,S,7999,7999,13,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0258,P020,Chiffon Party Wear,Women Stitched,Pink,M,7999,7999,21,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0259,P020,Chiffon Party Wear,Women Stitched,Pink,L,7999,7999,12,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0260,P020,Chiffon Party Wear,Women Stitched,Pink,XL,7999,7999,1,False,Embroidered chiffon 3-piece for weddings and parties.
+SKU0261,P021,Organza Formal Suit,Women Stitched,Mint,S,9499,9499,12,False,Hand-finished organza suit with embroidered border.
+SKU0262,P021,Organza Formal Suit,Women Stitched,Mint,M,9499,9499,3,False,Hand-finished organza suit with embroidered border.
+SKU0263,P021,Organza Formal Suit,Women Stitched,Mint,L,9499,9499,7,False,Hand-finished organza suit with embroidered border.
+SKU0264,P021,Organza Formal Suit,Women Stitched,Mint,XL,9499,9499,2,False,Hand-finished organza suit with embroidered border.
+SKU0265,P021,Organza Formal Suit,Women Stitched,Peach,S,9499,9499,9,False,Hand-finished organza suit with embroidered border.
+SKU0266,P021,Organza Formal Suit,Women Stitched,Peach,M,9499,9499,7,False,Hand-finished organza suit with embroidered border.
+SKU0267,P021,Organza Formal Suit,Women Stitched,Peach,L,9499,9499,15,False,Hand-finished organza suit with embroidered border.
+SKU0268,P021,Organza Formal Suit,Women Stitched,Peach,XL,9499,9499,18,False,Hand-finished organza suit with embroidered border.
+SKU0269,P021,Organza Formal Suit,Women Stitched,Ivory,S,9499,9499,0,False,Hand-finished organza suit with embroidered border.
+SKU0270,P021,Organza Formal Suit,Women Stitched,Ivory,M,9499,9499,17,False,Hand-finished organza suit with embroidered border.
+SKU0271,P021,Organza Formal Suit,Women Stitched,Ivory,L,9499,9499,23,False,Hand-finished organza suit with embroidered border.
+SKU0272,P021,Organza Formal Suit,Women Stitched,Ivory,XL,9499,9499,5,False,Hand-finished organza suit with embroidered border.
+SKU0273,P022,Khaddar 3-Piece Stitched,Women Stitched,Brown,S,4999,4000,23,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0274,P022,Khaddar 3-Piece Stitched,Women Stitched,Brown,M,4999,4000,5,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0275,P022,Khaddar 3-Piece Stitched,Women Stitched,Brown,L,4999,4000,14,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0276,P022,Khaddar 3-Piece Stitched,Women Stitched,Brown,XL,4999,4000,18,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0277,P022,Khaddar 3-Piece Stitched,Women Stitched,Maroon,S,4999,4000,22,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0278,P022,Khaddar 3-Piece Stitched,Women Stitched,Maroon,M,4999,4000,12,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0279,P022,Khaddar 3-Piece Stitched,Women Stitched,Maroon,L,4999,4000,13,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0280,P022,Khaddar 3-Piece Stitched,Women Stitched,Maroon,XL,4999,4000,5,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0281,P022,Khaddar 3-Piece Stitched,Women Stitched,Teal,S,4999,4000,17,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0282,P022,Khaddar 3-Piece Stitched,Women Stitched,Teal,M,4999,4000,19,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0283,P022,Khaddar 3-Piece Stitched,Women Stitched,Teal,L,4999,4000,24,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0284,P022,Khaddar 3-Piece Stitched,Women Stitched,Teal,XL,4999,4000,17,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0285,P022,Khaddar 3-Piece Stitched,Women Stitched,Grey,S,4999,4000,5,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0286,P022,Khaddar 3-Piece Stitched,Women Stitched,Grey,M,4999,4000,0,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0287,P022,Khaddar 3-Piece Stitched,Women Stitched,Grey,L,4999,4000,19,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0288,P022,Khaddar 3-Piece Stitched,Women Stitched,Grey,XL,4999,4000,3,True,"Warm khaddar printed suit with shawl, stitched."
+SKU0289,P023,Velvet Winter Suit,Women Stitched,Wine,S,8999,8999,11,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0290,P023,Velvet Winter Suit,Women Stitched,Wine,M,8999,8999,15,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0291,P023,Velvet Winter Suit,Women Stitched,Wine,L,8999,8999,17,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0292,P023,Velvet Winter Suit,Women Stitched,Wine,XL,8999,8999,4,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0293,P023,Velvet Winter Suit,Women Stitched,Black,S,8999,8999,1,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0294,P023,Velvet Winter Suit,Women Stitched,Black,M,8999,8999,22,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0295,P023,Velvet Winter Suit,Women Stitched,Black,L,8999,8999,0,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0296,P023,Velvet Winter Suit,Women Stitched,Black,XL,8999,8999,12,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0297,P023,Velvet Winter Suit,Women Stitched,Navy,S,8999,8999,25,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0298,P023,Velvet Winter Suit,Women Stitched,Navy,M,8999,8999,0,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0299,P023,Velvet Winter Suit,Women Stitched,Navy,L,8999,8999,0,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0300,P023,Velvet Winter Suit,Women Stitched,Navy,XL,8999,8999,1,False,Velvet shirt with embroidered shawl for winter weddings.
+SKU0301,P024,Printed Kurti,Women Kurti,Pink,S,1799,1799,12,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0302,P024,Printed Kurti,Women Kurti,Pink,M,1799,1799,1,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0303,P024,Printed Kurti,Women Kurti,Pink,L,1799,1799,11,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0304,P024,Printed Kurti,Women Kurti,Pink,XL,1799,1799,13,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0305,P024,Printed Kurti,Women Kurti,Blue,S,1799,1799,10,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0306,P024,Printed Kurti,Women Kurti,Blue,M,1799,1799,8,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0307,P024,Printed Kurti,Women Kurti,Blue,L,1799,1799,10,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0308,P024,Printed Kurti,Women Kurti,Blue,XL,1799,1799,8,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0309,P024,Printed Kurti,Women Kurti,Green,S,1799,1799,14,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0310,P024,Printed Kurti,Women Kurti,Green,M,1799,1799,17,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0311,P024,Printed Kurti,Women Kurti,Green,L,1799,1799,11,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0312,P024,Printed Kurti,Women Kurti,Green,XL,1799,1799,0,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0313,P024,Printed Kurti,Women Kurti,White,S,1799,1799,25,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0314,P024,Printed Kurti,Women Kurti,White,M,1799,1799,3,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0315,P024,Printed Kurti,Women Kurti,White,L,1799,1799,24,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0316,P024,Printed Kurti,Women Kurti,White,XL,1799,1799,23,False,"Straight cut printed cotton kurti, ready to wear."
+SKU0317,P025,Embroidered Kurti,Women Kurti,Black,S,2499,2499,16,False,Front embroidered kurti with round neck.
+SKU0318,P025,Embroidered Kurti,Women Kurti,Black,M,2499,2499,16,False,Front embroidered kurti with round neck.
+SKU0319,P025,Embroidered Kurti,Women Kurti,Black,L,2499,2499,0,False,Front embroidered kurti with round neck.
+SKU0320,P025,Embroidered Kurti,Women Kurti,Black,XL,2499,2499,5,False,Front embroidered kurti with round neck.
+SKU0321,P025,Embroidered Kurti,Women Kurti,Peach,S,2499,2499,20,False,Front embroidered kurti with round neck.
+SKU0322,P025,Embroidered Kurti,Women Kurti,Peach,M,2499,2499,3,False,Front embroidered kurti with round neck.
+SKU0323,P025,Embroidered Kurti,Women Kurti,Peach,L,2499,2499,19,False,Front embroidered kurti with round neck.
+SKU0324,P025,Embroidered Kurti,Women Kurti,Peach,XL,2499,2499,18,False,Front embroidered kurti with round neck.
+SKU0325,P025,Embroidered Kurti,Women Kurti,Mustard,S,2499,2499,3,False,Front embroidered kurti with round neck.
+SKU0326,P025,Embroidered Kurti,Women Kurti,Mustard,M,2499,2499,22,False,Front embroidered kurti with round neck.
+SKU0327,P025,Embroidered Kurti,Women Kurti,Mustard,L,2499,2499,19,False,Front embroidered kurti with round neck.
+SKU0328,P025,Embroidered Kurti,Women Kurti,Mustard,XL,2499,2499,23,False,Front embroidered kurti with round neck.
+SKU0329,P026,Plain Cotton Kurti,Women Kurti,White,S,1299,1050,2,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0330,P026,Plain Cotton Kurti,Women Kurti,White,M,1299,1050,7,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0331,P026,Plain Cotton Kurti,Women Kurti,White,L,1299,1050,4,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0332,P026,Plain Cotton Kurti,Women Kurti,White,XL,1299,1050,4,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0333,P026,Plain Cotton Kurti,Women Kurti,Black,S,1299,1050,17,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0334,P026,Plain Cotton Kurti,Women Kurti,Black,M,1299,1050,20,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0335,P026,Plain Cotton Kurti,Women Kurti,Black,L,1299,1050,10,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0336,P026,Plain Cotton Kurti,Women Kurti,Black,XL,1299,1050,16,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0337,P026,Plain Cotton Kurti,Women Kurti,Beige,S,1299,1050,15,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0338,P026,Plain Cotton Kurti,Women Kurti,Beige,M,1299,1050,3,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0339,P026,Plain Cotton Kurti,Women Kurti,Beige,L,1299,1050,21,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0340,P026,Plain Cotton Kurti,Women Kurti,Beige,XL,1299,1050,7,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0341,P026,Plain Cotton Kurti,Women Kurti,Red,S,1299,1050,4,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0342,P026,Plain Cotton Kurti,Women Kurti,Red,M,1299,1050,12,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0343,P026,Plain Cotton Kurti,Women Kurti,Red,L,1299,1050,25,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0344,P026,Plain Cotton Kurti,Women Kurti,Red,XL,1299,1050,19,True,"Plain cotton kurti, pairs with palazzo or trouser."
+SKU0345,P027,Linen Kurti,Women Kurti,Beige,S,2199,2199,7,False,Breathable linen kurti with side slits.
+SKU0346,P027,Linen Kurti,Women Kurti,Beige,M,2199,2199,4,False,Breathable linen kurti with side slits.
+SKU0347,P027,Linen Kurti,Women Kurti,Beige,L,2199,2199,14,False,Breathable linen kurti with side slits.
+SKU0348,P027,Linen Kurti,Women Kurti,Beige,XL,2199,2199,16,False,Breathable linen kurti with side slits.
+SKU0349,P027,Linen Kurti,Women Kurti,White,S,2199,2199,21,False,Breathable linen kurti with side slits.
+SKU0350,P027,Linen Kurti,Women Kurti,White,M,2199,2199,22,False,Breathable linen kurti with side slits.
+SKU0351,P027,Linen Kurti,Women Kurti,White,L,2199,2199,19,False,Breathable linen kurti with side slits.
+SKU0352,P027,Linen Kurti,Women Kurti,White,XL,2199,2199,3,False,Breathable linen kurti with side slits.
+SKU0353,P027,Linen Kurti,Women Kurti,Olive,S,2199,2199,2,False,Breathable linen kurti with side slits.
+SKU0354,P027,Linen Kurti,Women Kurti,Olive,M,2199,2199,22,False,Breathable linen kurti with side slits.
+SKU0355,P027,Linen Kurti,Women Kurti,Olive,L,2199,2199,10,False,Breathable linen kurti with side slits.
+SKU0356,P027,Linen Kurti,Women Kurti,Olive,XL,2199,2199,4,False,Breathable linen kurti with side slits.
+SKU0357,P028,Palazzo Pants,Women Bottoms,Black,S,1299,1299,3,False,Wide leg cotton palazzo with elastic waist.
+SKU0358,P028,Palazzo Pants,Women Bottoms,Black,M,1299,1299,11,False,Wide leg cotton palazzo with elastic waist.
+SKU0359,P028,Palazzo Pants,Women Bottoms,Black,L,1299,1299,3,False,Wide leg cotton palazzo with elastic waist.
+SKU0360,P028,Palazzo Pants,Women Bottoms,Black,XL,1299,1299,1,False,Wide leg cotton palazzo with elastic waist.
+SKU0361,P028,Palazzo Pants,Women Bottoms,White,S,1299,1299,9,False,Wide leg cotton palazzo with elastic waist.
+SKU0362,P028,Palazzo Pants,Women Bottoms,White,M,1299,1299,1,False,Wide leg cotton palazzo with elastic waist.
+SKU0363,P028,Palazzo Pants,Women Bottoms,White,L,1299,1299,9,False,Wide leg cotton palazzo with elastic waist.
+SKU0364,P028,Palazzo Pants,Women Bottoms,White,XL,1299,1299,20,False,Wide leg cotton palazzo with elastic waist.
+SKU0365,P028,Palazzo Pants,Women Bottoms,Beige,S,1299,1299,1,False,Wide leg cotton palazzo with elastic waist.
+SKU0366,P028,Palazzo Pants,Women Bottoms,Beige,M,1299,1299,20,False,Wide leg cotton palazzo with elastic waist.
+SKU0367,P028,Palazzo Pants,Women Bottoms,Beige,L,1299,1299,15,False,Wide leg cotton palazzo with elastic waist.
+SKU0368,P028,Palazzo Pants,Women Bottoms,Beige,XL,1299,1299,1,False,Wide leg cotton palazzo with elastic waist.
+SKU0369,P028,Palazzo Pants,Women Bottoms,Navy,S,1299,1299,4,False,Wide leg cotton palazzo with elastic waist.
+SKU0370,P028,Palazzo Pants,Women Bottoms,Navy,M,1299,1299,1,False,Wide leg cotton palazzo with elastic waist.
+SKU0371,P028,Palazzo Pants,Women Bottoms,Navy,L,1299,1299,7,False,Wide leg cotton palazzo with elastic waist.
+SKU0372,P028,Palazzo Pants,Women Bottoms,Navy,XL,1299,1299,6,False,Wide leg cotton palazzo with elastic waist.
+SKU0373,P029,Cigarette Trouser,Women Bottoms,Black,S,1199,1199,3,False,Slim fit cambric cigarette trouser.
+SKU0374,P029,Cigarette Trouser,Women Bottoms,Black,M,1199,1199,0,False,Slim fit cambric cigarette trouser.
+SKU0375,P029,Cigarette Trouser,Women Bottoms,Black,L,1199,1199,4,False,Slim fit cambric cigarette trouser.
+SKU0376,P029,Cigarette Trouser,Women Bottoms,Black,XL,1199,1199,24,False,Slim fit cambric cigarette trouser.
+SKU0377,P029,Cigarette Trouser,Women Bottoms,White,S,1199,1199,4,False,Slim fit cambric cigarette trouser.
+SKU0378,P029,Cigarette Trouser,Women Bottoms,White,M,1199,1199,19,False,Slim fit cambric cigarette trouser.
+SKU0379,P029,Cigarette Trouser,Women Bottoms,White,L,1199,1199,4,False,Slim fit cambric cigarette trouser.
+SKU0380,P029,Cigarette Trouser,Women Bottoms,White,XL,1199,1199,24,False,Slim fit cambric cigarette trouser.
+SKU0381,P029,Cigarette Trouser,Women Bottoms,Maroon,S,1199,1199,0,False,Slim fit cambric cigarette trouser.
+SKU0382,P029,Cigarette Trouser,Women Bottoms,Maroon,M,1199,1199,8,False,Slim fit cambric cigarette trouser.
+SKU0383,P029,Cigarette Trouser,Women Bottoms,Maroon,L,1199,1199,11,False,Slim fit cambric cigarette trouser.
+SKU0384,P029,Cigarette Trouser,Women Bottoms,Maroon,XL,1199,1199,13,False,Slim fit cambric cigarette trouser.
+SKU0385,P029,Cigarette Trouser,Women Bottoms,Grey,S,1199,1199,10,False,Slim fit cambric cigarette trouser.
+SKU0386,P029,Cigarette Trouser,Women Bottoms,Grey,M,1199,1199,1,False,Slim fit cambric cigarette trouser.
+SKU0387,P029,Cigarette Trouser,Women Bottoms,Grey,L,1199,1199,4,False,Slim fit cambric cigarette trouser.
+SKU0388,P029,Cigarette Trouser,Women Bottoms,Grey,XL,1199,1199,24,False,Slim fit cambric cigarette trouser.
+SKU0389,P030,Straight Pants,Women Bottoms,Black,S,1499,1200,6,True,"Straight cut stretch trouser, office wear."
+SKU0390,P030,Straight Pants,Women Bottoms,Black,M,1499,1200,3,True,"Straight cut stretch trouser, office wear."
+SKU0391,P030,Straight Pants,Women Bottoms,Black,L,1499,1200,19,True,"Straight cut stretch trouser, office wear."
+SKU0392,P030,Straight Pants,Women Bottoms,Black,XL,1499,1200,0,True,"Straight cut stretch trouser, office wear."
+SKU0393,P030,Straight Pants,Women Bottoms,Beige,S,1499,1200,3,True,"Straight cut stretch trouser, office wear."
+SKU0394,P030,Straight Pants,Women Bottoms,Beige,M,1499,1200,25,True,"Straight cut stretch trouser, office wear."
+SKU0395,P030,Straight Pants,Women Bottoms,Beige,L,1499,1200,11,True,"Straight cut stretch trouser, office wear."
+SKU0396,P030,Straight Pants,Women Bottoms,Beige,XL,1499,1200,22,True,"Straight cut stretch trouser, office wear."
+SKU0397,P030,Straight Pants,Women Bottoms,Navy,S,1499,1200,2,True,"Straight cut stretch trouser, office wear."
+SKU0398,P030,Straight Pants,Women Bottoms,Navy,M,1499,1200,9,True,"Straight cut stretch trouser, office wear."
+SKU0399,P030,Straight Pants,Women Bottoms,Navy,L,1499,1200,0,True,"Straight cut stretch trouser, office wear."
+SKU0400,P030,Straight Pants,Women Bottoms,Navy,XL,1499,1200,3,True,"Straight cut stretch trouser, office wear."
+SKU0401,P031,Abaya Classic,Women Modest,Black,52,4999,4999,23,False,Plain open-front abaya in premium nida fabric.
+SKU0402,P031,Abaya Classic,Women Modest,Black,54,4999,4999,19,False,Plain open-front abaya in premium nida fabric.
+SKU0403,P031,Abaya Classic,Women Modest,Black,56,4999,4999,3,False,Plain open-front abaya in premium nida fabric.
+SKU0404,P031,Abaya Classic,Women Modest,Navy,52,4999,4999,13,False,Plain open-front abaya in premium nida fabric.
+SKU0405,P031,Abaya Classic,Women Modest,Navy,54,4999,4999,20,False,Plain open-front abaya in premium nida fabric.
+SKU0406,P031,Abaya Classic,Women Modest,Navy,56,4999,4999,24,False,Plain open-front abaya in premium nida fabric.
+SKU0407,P031,Abaya Classic,Women Modest,Brown,52,4999,4999,0,False,Plain open-front abaya in premium nida fabric.
+SKU0408,P031,Abaya Classic,Women Modest,Brown,54,4999,4999,15,False,Plain open-front abaya in premium nida fabric.
+SKU0409,P031,Abaya Classic,Women Modest,Brown,56,4999,4999,5,False,Plain open-front abaya in premium nida fabric.
+SKU0410,P032,Embroidered Abaya,Women Modest,Black,52,6499,6499,0,False,Abaya with sleeve and border embroidery.
+SKU0411,P032,Embroidered Abaya,Women Modest,Black,54,6499,6499,23,False,Abaya with sleeve and border embroidery.
+SKU0412,P032,Embroidered Abaya,Women Modest,Black,56,6499,6499,5,False,Abaya with sleeve and border embroidery.
+SKU0413,P032,Embroidered Abaya,Women Modest,Burgundy,52,6499,6499,13,False,Abaya with sleeve and border embroidery.
+SKU0414,P032,Embroidered Abaya,Women Modest,Burgundy,54,6499,6499,10,False,Abaya with sleeve and border embroidery.
+SKU0415,P032,Embroidered Abaya,Women Modest,Burgundy,56,6499,6499,25,False,Abaya with sleeve and border embroidery.
+SKU0416,P033,Hijab Chiffon,Women Modest,Black,Free,699,699,13,False,"Soft chiffon hijab, 72 inch length."
+SKU0417,P033,Hijab Chiffon,Women Modest,White,Free,699,699,4,False,"Soft chiffon hijab, 72 inch length."
+SKU0418,P033,Hijab Chiffon,Women Modest,Beige,Free,699,699,20,False,"Soft chiffon hijab, 72 inch length."
+SKU0419,P033,Hijab Chiffon,Women Modest,Pink,Free,699,699,20,False,"Soft chiffon hijab, 72 inch length."
+SKU0420,P033,Hijab Chiffon,Women Modest,Navy,Free,699,699,15,False,"Soft chiffon hijab, 72 inch length."
+SKU0421,P034,Jersey Hijab,Women Modest,Black,Free,799,799,8,False,"Stretch jersey hijab, easy to style, no pins needed."
+SKU0422,P034,Jersey Hijab,Women Modest,Grey,Free,799,799,15,False,"Stretch jersey hijab, easy to style, no pins needed."
+SKU0423,P034,Jersey Hijab,Women Modest,Beige,Free,799,799,20,False,"Stretch jersey hijab, easy to style, no pins needed."
+SKU0424,P034,Jersey Hijab,Women Modest,Brown,Free,799,799,4,False,"Stretch jersey hijab, easy to style, no pins needed."
+SKU0425,P035,Chiffon Dupatta,Women Accessories,Pink,Free,1499,1499,22,False,Plain dyed chiffon dupatta with lace border.
+SKU0426,P035,Chiffon Dupatta,Women Accessories,Black,Free,1499,1499,0,False,Plain dyed chiffon dupatta with lace border.
+SKU0427,P035,Chiffon Dupatta,Women Accessories,Mint,Free,1499,1499,0,False,Plain dyed chiffon dupatta with lace border.
+SKU0428,P035,Chiffon Dupatta,Women Accessories,Maroon,Free,1499,1499,1,False,Plain dyed chiffon dupatta with lace border.
+SKU0429,P035,Chiffon Dupatta,Women Accessories,White,Free,1499,1499,17,False,Plain dyed chiffon dupatta with lace border.
+SKU0430,P036,Embroidered Dupatta,Women Accessories,Black,Free,2999,2999,5,False,"Net dupatta with heavy embroidery, for formal wear."
+SKU0431,P036,Embroidered Dupatta,Women Accessories,Red,Free,2999,2999,22,False,"Net dupatta with heavy embroidery, for formal wear."
+SKU0432,P036,Embroidered Dupatta,Women Accessories,Gold,Free,2999,2999,6,False,"Net dupatta with heavy embroidery, for formal wear."
+SKU0433,P037,Pashmina Shawl,Women Winter,Camel,Free,3999,3999,3,False,"Soft pashmina blend shawl, lightweight and warm."
+SKU0434,P037,Pashmina Shawl,Women Winter,Grey,Free,3999,3999,20,False,"Soft pashmina blend shawl, lightweight and warm."
+SKU0435,P037,Pashmina Shawl,Women Winter,Black,Free,3999,3999,6,False,"Soft pashmina blend shawl, lightweight and warm."
+SKU0436,P037,Pashmina Shawl,Women Winter,Maroon,Free,3999,3999,2,False,"Soft pashmina blend shawl, lightweight and warm."
+SKU0437,P038,Woolen Cardigan,Women Winter,Cream,S,3299,2650,19,True,Open-front knit cardigan with pockets.
+SKU0438,P038,Woolen Cardigan,Women Winter,Cream,M,3299,2650,20,True,Open-front knit cardigan with pockets.
+SKU0439,P038,Woolen Cardigan,Women Winter,Cream,L,3299,2650,2,True,Open-front knit cardigan with pockets.
+SKU0440,P038,Woolen Cardigan,Women Winter,Cream,XL,3299,2650,14,True,Open-front knit cardigan with pockets.
+SKU0441,P038,Woolen Cardigan,Women Winter,Grey,S,3299,2650,22,True,Open-front knit cardigan with pockets.
+SKU0442,P038,Woolen Cardigan,Women Winter,Grey,M,3299,2650,12,True,Open-front knit cardigan with pockets.
+SKU0443,P038,Woolen Cardigan,Women Winter,Grey,L,3299,2650,8,True,Open-front knit cardigan with pockets.
+SKU0444,P038,Woolen Cardigan,Women Winter,Grey,XL,3299,2650,8,True,Open-front knit cardigan with pockets.
+SKU0445,P038,Woolen Cardigan,Women Winter,Black,S,3299,2650,9,True,Open-front knit cardigan with pockets.
+SKU0446,P038,Woolen Cardigan,Women Winter,Black,M,3299,2650,14,True,Open-front knit cardigan with pockets.
+SKU0447,P038,Woolen Cardigan,Women Winter,Black,L,3299,2650,13,True,Open-front knit cardigan with pockets.
+SKU0448,P038,Woolen Cardigan,Women Winter,Black,XL,3299,2650,20,True,Open-front knit cardigan with pockets.
+SKU0449,P039,Hooded Sweatshirt Women,Women Winter,Pink,S,3199,3199,12,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0450,P039,Hooded Sweatshirt Women,Women Winter,Pink,M,3199,3199,9,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0451,P039,Hooded Sweatshirt Women,Women Winter,Pink,L,3199,3199,24,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0452,P039,Hooded Sweatshirt Women,Women Winter,Pink,XL,3199,3199,9,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0453,P039,Hooded Sweatshirt Women,Women Winter,Grey,S,3199,3199,13,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0454,P039,Hooded Sweatshirt Women,Women Winter,Grey,M,3199,3199,18,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0455,P039,Hooded Sweatshirt Women,Women Winter,Grey,L,3199,3199,21,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0456,P039,Hooded Sweatshirt Women,Women Winter,Grey,XL,3199,3199,1,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0457,P039,Hooded Sweatshirt Women,Women Winter,Black,S,3199,3199,3,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0458,P039,Hooded Sweatshirt Women,Women Winter,Black,M,3199,3199,23,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0459,P039,Hooded Sweatshirt Women,Women Winter,Black,L,3199,3199,20,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0460,P039,Hooded Sweatshirt Women,Women Winter,Black,XL,3199,3199,19,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0461,P039,Hooded Sweatshirt Women,Women Winter,Lilac,S,3199,3199,16,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0462,P039,Hooded Sweatshirt Women,Women Winter,Lilac,M,3199,3199,22,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0463,P039,Hooded Sweatshirt Women,Women Winter,Lilac,L,3199,3199,15,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0464,P039,Hooded Sweatshirt Women,Women Winter,Lilac,XL,3199,3199,12,False,"Cozy fleece hoodie for women, relaxed fit."
+SKU0465,P040,Kids Kurta Shalwar,Kids,White,2-3Y,2299,2299,12,False,Cotton kurta shalwar set for boys.
+SKU0466,P040,Kids Kurta Shalwar,Kids,White,4-5Y,2299,2299,18,False,Cotton kurta shalwar set for boys.
+SKU0467,P040,Kids Kurta Shalwar,Kids,White,6-7Y,2299,2299,0,False,Cotton kurta shalwar set for boys.
+SKU0468,P040,Kids Kurta Shalwar,Kids,White,8-9Y,2299,2299,17,False,Cotton kurta shalwar set for boys.
+SKU0469,P040,Kids Kurta Shalwar,Kids,Navy,2-3Y,2299,2299,25,False,Cotton kurta shalwar set for boys.
+SKU0470,P040,Kids Kurta Shalwar,Kids,Navy,4-5Y,2299,2299,20,False,Cotton kurta shalwar set for boys.
+SKU0471,P040,Kids Kurta Shalwar,Kids,Navy,6-7Y,2299,2299,9,False,Cotton kurta shalwar set for boys.
+SKU0472,P040,Kids Kurta Shalwar,Kids,Navy,8-9Y,2299,2299,23,False,Cotton kurta shalwar set for boys.
+SKU0473,P040,Kids Kurta Shalwar,Kids,Maroon,2-3Y,2299,2299,8,False,Cotton kurta shalwar set for boys.
+SKU0474,P040,Kids Kurta Shalwar,Kids,Maroon,4-5Y,2299,2299,19,False,Cotton kurta shalwar set for boys.
+SKU0475,P040,Kids Kurta Shalwar,Kids,Maroon,6-7Y,2299,2299,0,False,Cotton kurta shalwar set for boys.
+SKU0476,P040,Kids Kurta Shalwar,Kids,Maroon,8-9Y,2299,2299,5,False,Cotton kurta shalwar set for boys.
+SKU0477,P041,Kids Frock Lawn,Kids,Pink,2-3Y,1999,1999,18,False,Printed lawn frock for girls with lace detail.
+SKU0478,P041,Kids Frock Lawn,Kids,Pink,4-5Y,1999,1999,9,False,Printed lawn frock for girls with lace detail.
+SKU0479,P041,Kids Frock Lawn,Kids,Pink,6-7Y,1999,1999,0,False,Printed lawn frock for girls with lace detail.
+SKU0480,P041,Kids Frock Lawn,Kids,Pink,8-9Y,1999,1999,13,False,Printed lawn frock for girls with lace detail.
+SKU0481,P041,Kids Frock Lawn,Kids,Yellow,2-3Y,1999,1999,17,False,Printed lawn frock for girls with lace detail.
+SKU0482,P041,Kids Frock Lawn,Kids,Yellow,4-5Y,1999,1999,15,False,Printed lawn frock for girls with lace detail.
+SKU0483,P041,Kids Frock Lawn,Kids,Yellow,6-7Y,1999,1999,22,False,Printed lawn frock for girls with lace detail.
+SKU0484,P041,Kids Frock Lawn,Kids,Yellow,8-9Y,1999,1999,15,False,Printed lawn frock for girls with lace detail.
+SKU0485,P041,Kids Frock Lawn,Kids,Mint,2-3Y,1999,1999,20,False,Printed lawn frock for girls with lace detail.
+SKU0486,P041,Kids Frock Lawn,Kids,Mint,4-5Y,1999,1999,6,False,Printed lawn frock for girls with lace detail.
+SKU0487,P041,Kids Frock Lawn,Kids,Mint,6-7Y,1999,1999,12,False,Printed lawn frock for girls with lace detail.
+SKU0488,P041,Kids Frock Lawn,Kids,Mint,8-9Y,1999,1999,14,False,Printed lawn frock for girls with lace detail.
+SKU0489,P042,Kids Hoodie,Kids,Grey,2-3Y,1799,1450,7,True,Fleece pullover hoodie for kids.
+SKU0490,P042,Kids Hoodie,Kids,Grey,4-5Y,1799,1450,8,True,Fleece pullover hoodie for kids.
+SKU0491,P042,Kids Hoodie,Kids,Grey,6-7Y,1799,1450,8,True,Fleece pullover hoodie for kids.
+SKU0492,P042,Kids Hoodie,Kids,Grey,8-9Y,1799,1450,14,True,Fleece pullover hoodie for kids.
+SKU0493,P042,Kids Hoodie,Kids,Navy,2-3Y,1799,1450,6,True,Fleece pullover hoodie for kids.
+SKU0494,P042,Kids Hoodie,Kids,Navy,4-5Y,1799,1450,6,True,Fleece pullover hoodie for kids.
+SKU0495,P042,Kids Hoodie,Kids,Navy,6-7Y,1799,1450,3,True,Fleece pullover hoodie for kids.
+SKU0496,P042,Kids Hoodie,Kids,Navy,8-9Y,1799,1450,12,True,Fleece pullover hoodie for kids.
+SKU0497,P042,Kids Hoodie,Kids,Red,2-3Y,1799,1450,23,True,Fleece pullover hoodie for kids.
+SKU0498,P042,Kids Hoodie,Kids,Red,4-5Y,1799,1450,10,True,Fleece pullover hoodie for kids.
+SKU0499,P042,Kids Hoodie,Kids,Red,6-7Y,1799,1450,1,True,Fleece pullover hoodie for kids.
+SKU0500,P042,Kids Hoodie,Kids,Red,8-9Y,1799,1450,17,True,Fleece pullover hoodie for kids.
+SKU0501,P043,Leather Belt,Accessories,Black,32,1299,1299,12,False,Genuine leather belt with metal buckle.
+SKU0502,P043,Leather Belt,Accessories,Black,34,1299,1299,23,False,Genuine leather belt with metal buckle.
+SKU0503,P043,Leather Belt,Accessories,Black,36,1299,1299,4,False,Genuine leather belt with metal buckle.
+SKU0504,P043,Leather Belt,Accessories,Black,38,1299,1299,19,False,Genuine leather belt with metal buckle.
+SKU0505,P043,Leather Belt,Accessories,Brown,32,1299,1299,1,False,Genuine leather belt with metal buckle.
+SKU0506,P043,Leather Belt,Accessories,Brown,34,1299,1299,19,False,Genuine leather belt with metal buckle.
+SKU0507,P043,Leather Belt,Accessories,Brown,36,1299,1299,22,False,Genuine leather belt with metal buckle.
+SKU0508,P043,Leather Belt,Accessories,Brown,38,1299,1299,4,False,Genuine leather belt with metal buckle.
+SKU0509,P044,Peshawari Chappal,Footwear,Brown,8,3499,3499,23,False,"Handmade leather chappal, comfortable sole."
+SKU0510,P044,Peshawari Chappal,Footwear,Brown,9,3499,3499,4,False,"Handmade leather chappal, comfortable sole."
+SKU0511,P044,Peshawari Chappal,Footwear,Brown,10,3499,3499,19,False,"Handmade leather chappal, comfortable sole."
+SKU0512,P044,Peshawari Chappal,Footwear,Brown,11,3499,3499,11,False,"Handmade leather chappal, comfortable sole."
+SKU0513,P044,Peshawari Chappal,Footwear,Black,8,3499,3499,20,False,"Handmade leather chappal, comfortable sole."
+SKU0514,P044,Peshawari Chappal,Footwear,Black,9,3499,3499,4,False,"Handmade leather chappal, comfortable sole."
+SKU0515,P044,Peshawari Chappal,Footwear,Black,10,3499,3499,23,False,"Handmade leather chappal, comfortable sole."
+SKU0516,P044,Peshawari Chappal,Footwear,Black,11,3499,3499,3,False,"Handmade leather chappal, comfortable sole."
+SKU0517,P044,Peshawari Chappal,Footwear,Tan,8,3499,3499,0,False,"Handmade leather chappal, comfortable sole."
+SKU0518,P044,Peshawari Chappal,Footwear,Tan,9,3499,3499,17,False,"Handmade leather chappal, comfortable sole."
+SKU0519,P044,Peshawari Chappal,Footwear,Tan,10,3499,3499,1,False,"Handmade leather chappal, comfortable sole."
+SKU0520,P044,Peshawari Chappal,Footwear,Tan,11,3499,3499,20,False,"Handmade leather chappal, comfortable sole."
+SKU0521,P045,Khussa Embroidered,Footwear,Gold,36,2499,2499,14,False,Traditional embroidered khussa for women.
+SKU0522,P045,Khussa Embroidered,Footwear,Gold,37,2499,2499,12,False,Traditional embroidered khussa for women.
+SKU0523,P045,Khussa Embroidered,Footwear,Gold,38,2499,2499,16,False,Traditional embroidered khussa for women.
+SKU0524,P045,Khussa Embroidered,Footwear,Gold,39,2499,2499,2,False,Traditional embroidered khussa for women.
+SKU0525,P045,Khussa Embroidered,Footwear,Gold,40,2499,2499,9,False,Traditional embroidered khussa for women.
+SKU0526,P045,Khussa Embroidered,Footwear,Black,36,2499,2499,25,False,Traditional embroidered khussa for women.
+SKU0527,P045,Khussa Embroidered,Footwear,Black,37,2499,2499,14,False,Traditional embroidered khussa for women.
+SKU0528,P045,Khussa Embroidered,Footwear,Black,38,2499,2499,6,False,Traditional embroidered khussa for women.
+SKU0529,P045,Khussa Embroidered,Footwear,Black,39,2499,2499,9,False,Traditional embroidered khussa for women.
+SKU0530,P045,Khussa Embroidered,Footwear,Black,40,2499,2499,0,False,Traditional embroidered khussa for women.
+SKU0531,P045,Khussa Embroidered,Footwear,Maroon,36,2499,2499,4,False,Traditional embroidered khussa for women.
+SKU0532,P045,Khussa Embroidered,Footwear,Maroon,37,2499,2499,2,False,Traditional embroidered khussa for women.
+SKU0533,P045,Khussa Embroidered,Footwear,Maroon,38,2499,2499,16,False,Traditional embroidered khussa for women.
+SKU0534,P045,Khussa Embroidered,Footwear,Maroon,39,2499,2499,13,False,Traditional embroidered khussa for women.
+SKU0535,P045,Khussa Embroidered,Footwear,Maroon,40,2499,2499,13,False,Traditional embroidered khussa for women.
+SKU0536,P045,Khussa Embroidered,Footwear,Navy,36,2499,2499,20,False,Traditional embroidered khussa for women.
+SKU0537,P045,Khussa Embroidered,Footwear,Navy,37,2499,2499,14,False,Traditional embroidered khussa for women.
+SKU0538,P045,Khussa Embroidered,Footwear,Navy,38,2499,2499,15,False,Traditional embroidered khussa for women.
+SKU0539,P045,Khussa Embroidered,Footwear,Navy,39,2499,2499,19,False,Traditional embroidered khussa for women.
+SKU0540,P045,Khussa Embroidered,Footwear,Navy,40,2499,2499,9,False,Traditional embroidered khussa for women.
+SKU0541,P046,Casual Sandals,Footwear,Black,36,1999,1600,12,True,Lightweight daily wear sandals.
+SKU0542,P046,Casual Sandals,Footwear,Black,37,1999,1600,17,True,Lightweight daily wear sandals.
+SKU0543,P046,Casual Sandals,Footwear,Black,38,1999,1600,22,True,Lightweight daily wear sandals.
+SKU0544,P046,Casual Sandals,Footwear,Black,39,1999,1600,17,True,Lightweight daily wear sandals.
+SKU0545,P046,Casual Sandals,Footwear,Black,40,1999,1600,0,True,Lightweight daily wear sandals.
+SKU0546,P046,Casual Sandals,Footwear,Black,41,1999,1600,19,True,Lightweight daily wear sandals.
+SKU0547,P046,Casual Sandals,Footwear,Brown,36,1999,1600,13,True,Lightweight daily wear sandals.
+SKU0548,P046,Casual Sandals,Footwear,Brown,37,1999,1600,25,True,Lightweight daily wear sandals.
+SKU0549,P046,Casual Sandals,Footwear,Brown,38,1999,1600,8,True,Lightweight daily wear sandals.
+SKU0550,P046,Casual Sandals,Footwear,Brown,39,1999,1600,20,True,Lightweight daily wear sandals.
+SKU0551,P046,Casual Sandals,Footwear,Brown,40,1999,1600,0,True,Lightweight daily wear sandals.
+SKU0552,P046,Casual Sandals,Footwear,Brown,41,1999,1600,22,True,Lightweight daily wear sandals.
+SKU0553,P046,Casual Sandals,Footwear,Beige,36,1999,1600,24,True,Lightweight daily wear sandals.
+SKU0554,P046,Casual Sandals,Footwear,Beige,37,1999,1600,1,True,Lightweight daily wear sandals.
+SKU0555,P046,Casual Sandals,Footwear,Beige,38,1999,1600,19,True,Lightweight daily wear sandals.
+SKU0556,P046,Casual Sandals,Footwear,Beige,39,1999,1600,14,True,Lightweight daily wear sandals.
+SKU0557,P046,Casual Sandals,Footwear,Beige,40,1999,1600,8,True,Lightweight daily wear sandals.
+SKU0558,P046,Casual Sandals,Footwear,Beige,41,1999,1600,1,True,Lightweight daily wear sandals.
+SKU0559,P047,Handbag Tote,Accessories,Black,Free,3999,3999,20,False,Faux leather tote bag with zip closure.
+SKU0560,P047,Handbag Tote,Accessories,Tan,Free,3999,3999,2,False,Faux leather tote bag with zip closure.
+SKU0561,P047,Handbag Tote,Accessories,Maroon,Free,3999,3999,9,False,Faux leather tote bag with zip closure.
+SKU0562,P048,Unstitched Lawn 3-Piece,Women Unstitched,Pink,Free,3999,3999,16,False,"3-piece printed unstitched lawn, 3 meter shirt."
+SKU0563,P048,Unstitched Lawn 3-Piece,Women Unstitched,Blue,Free,3999,3999,22,False,"3-piece printed unstitched lawn, 3 meter shirt."
+SKU0564,P048,Unstitched Lawn 3-Piece,Women Unstitched,Green,Free,3999,3999,9,False,"3-piece printed unstitched lawn, 3 meter shirt."
+SKU0565,P048,Unstitched Lawn 3-Piece,Women Unstitched,Yellow,Free,3999,3999,25,False,"3-piece printed unstitched lawn, 3 meter shirt."
+SKU0566,P049,Unstitched Winter Khaddar,Women Unstitched,Maroon,Free,4299,3450,0,True,3-piece unstitched khaddar with printed shawl.
+SKU0567,P049,Unstitched Winter Khaddar,Women Unstitched,Teal,Free,4299,3450,18,True,3-piece unstitched khaddar with printed shawl.
+SKU0568,P049,Unstitched Winter Khaddar,Women Unstitched,Brown,Free,4299,3450,13,True,3-piece unstitched khaddar with printed shawl.
+SKU0569,P050,Unstitched Men Wash & Wear,Men Unstitched,White,Free,3499,3499,0,False,"Unstitched wash and wear fabric, 4.5 meter."
+SKU0570,P050,Unstitched Men Wash & Wear,Men Unstitched,Grey,Free,3499,3499,19,False,"Unstitched wash and wear fabric, 4.5 meter."
+SKU0571,P050,Unstitched Men Wash & Wear,Men Unstitched,Black,Free,3499,3499,12,False,"Unstitched wash and wear fabric, 4.5 meter."
+SKU0572,P050,Unstitched Men Wash & Wear,Men Unstitched,Cream,Free,3499,3499,8,False,"Unstitched wash and wear fabric, 4.5 meter."

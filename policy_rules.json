@@ -1,0 +1,39 @@
+{
+  "_note": "Machine-readable version of policy.md. The guardrail layer reads these values; keep both files in sync.",
+  "delivery": {
+    "tier_a_cities": ["Lahore","Gujranwala","Sialkot","Sheikhupura","Faisalabad","Islamabad","Rawalpindi"],
+    "tier_a_charge": 250,
+    "default_charge": 350,
+    "free_delivery_min_product_total": 10000,
+    "eta_days_tier_a": [2, 4],
+    "eta_days_other": [4, 6]
+  },
+  "payment": {
+    "cod_available": true,
+    "cod_max_total_without_human": 25000
+  },
+  "order": {
+    "max_qty_per_item": 10,
+    "reservation_minutes": 15,
+    "required_fields": ["product","color","size","quantity","customer_name","phone","address","city"],
+    "confirmation_required": true,
+    "statuses": ["Placed","Packed","Shipped","Delivered"]
+  },
+  "order_status_lookup": {
+    "require_order_id_and_phone": true
+  },
+  "exchange": {
+    "window_days": 7,
+    "sale_items_allowed": false,
+    "same_product_only": true,
+    "requires_replacement_in_stock": true,
+    "non_exchangeable_categories": ["Women Modest", "Accessories", "Women Accessories", "Men Unstitched", "Women Unstitched"],
+    "exchange_courier_charge": 250
+  },
+  "refund": {
+    "ai_may_approve": false,
+    "damage_report_hours": 48
+  },
+  "escalation_keywords": ["refund","return","damaged","phat","kharab","wrong item","complaint","cancel","discount","court","wakeel","insan se","owner se","human"],
+  "human_hours": "10:00-20:00 PKT"
+}

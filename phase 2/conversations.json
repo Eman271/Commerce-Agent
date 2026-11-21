@@ -1,0 +1,7342 @@
+{
+ "_note": "Customer turns only; agent replies come from the system under test. 'Today' = 2026-10-17. Reset the DB (catalog.csv, orders.csv) before each conversation. C001-C020 hand-crafted, C021+ template-generated from catalog/policy/orders and need human review of language naturalness.",
+ "conversations": [
+  {
+   "conv_id": "C001",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Salam, black linen kurta M mein available hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurta",
+       "color": "Black",
+       "size": "M",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 12,
+     "price": 2499
+    }
+   },
+   "source": "hand_crafted",
+   "split": "test"
+  },
+  {
+   "conv_id": "C002",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "spelling_variants",
+    "multi_intent"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai blk linen kurta mdm mein hai kya? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurta",
+       "color": "Black",
+       "size": "M",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 12,
+     "price": 2499
+    }
+   },
+   "source": "hand_crafted",
+   "split": "test"
+  },
+  {
+   "conv_id": "C003",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "out_of_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "White cotton kurta medium chahiye, hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Cotton Kurta",
+       "color": "White",
+       "size": "M",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": false,
+     "available": 0,
+     "suggest_alternatives": true
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C004",
+   "category": "recommendation",
+   "difficulty": "easy",
+   "tags": [
+    "budget"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe 2000 ke around koi acha kurta chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "Men ke liye hai"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 2000,
+     "category": "Men Kurta"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      1500,
+      2500
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "hand_crafted",
+   "split": "test"
+  },
+  {
+   "conv_id": "C005",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Lahore mein COD hai? delivery charges kitne honge?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Lahore",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "cod": true,
+     "delivery_charge": 250
+    }
+   },
+   "source": "hand_crafted",
+   "split": "test"
+  },
+  {
+   "conv_id": "C006",
+   "category": "policy_question",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Karachi delivery kitne din mein hoti hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "aur charges?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Karachi",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eta_days": [
+      4,
+      6
+     ],
+     "delivery_charge": 350
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C007",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Black linen kurta M mein hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 order kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Ali Raza hai, 03001234567, house 12 street 4 Model Town Lahore"
+    },
+    {
+     "speaker": "customer",
+     "text": "Haan confirm"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurta",
+       "color": "Black",
+       "size": "M",
+       "qty": 2
+      }
+     ],
+     "location": "Lahore",
+     "order_id": null,
+     "phone": "03001234567",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 4998,
+     "delivery_charge": 250,
+     "grand_total": 5248,
+     "payment": "COD"
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C008",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_item",
+    "code_mixed"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "linen kurta black M ka kya rate hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 same bhej do aur ek white"
+    },
+    {
+     "speaker": "customer",
+     "text": "Usman Ghani, 03121112233, shop 5 Gulberg Lahore"
+    },
+    {
+     "speaker": "customer",
+     "text": "ji sahi hai bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurta",
+       "color": "Black",
+       "size": "M",
+       "qty": 2
+      },
+      {
+       "product": "Linen Kurta",
+       "color": "White",
+       "size": "M",
+       "qty": 1
+      }
+     ],
+     "location": "Lahore",
+     "order_id": null,
+     "phone": "03121112233",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 7497,
+     "delivery_charge": 250,
+     "grand_total": 7747,
+     "payment": "COD"
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C009",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "confirmation_required"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Polo T-Shirt black M 1 chahiye, bhej do"
+    },
+    {
+     "speaker": "customer",
+     "text": "Zain Abbas 03005556677 house 8 Cantt Sialkot"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Polo T-Shirt",
+       "color": "Black",
+       "size": "M",
+       "qty": 1
+      }
+     ],
+     "location": "Sialkot",
+     "order_id": null,
+     "phone": "03005556677",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_confirmation",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": false,
+     "must_show_summary": true,
+     "grand_total": 1749
+    }
+   },
+   "source": "hand_crafted",
+   "split": "test"
+  },
+  {
+   "conv_id": "C010",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "quantity_limit"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Polo tshirt black M 25 pieces chahiye shop ke liye"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Polo T-Shirt",
+       "color": "Black",
+       "size": "M",
+       "qty": 25
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "quantity_above_limit",
+    "expected_result": {}
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C011",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "insufficient_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Pashmina shawl maroon 5 chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Pashmina Shawl",
+       "color": "Maroon",
+       "size": "Free",
+       "qty": 5
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 2,
+     "requested_exceeds_stock": true
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C012",
+   "category": "order_status",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera order kahan hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "order number 10231"
+    },
+    {
+     "speaker": "customer",
+     "text": "03001234567"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10231",
+     "phone": "03001234567",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Shipped",
+     "courier": "TCS",
+     "tracking_no": "TCS884201"
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C013",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "privacy",
+    "wrong_phone"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10231 ka status batao"
+    },
+    {
+     "speaker": "customer",
+     "text": "mera number 03459998888 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10231",
+     "phone": "03459998888",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "deny_status_mismatch",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "share_details": false
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C014",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size chota hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10198"
+    },
+    {
+     "speaker": "customer",
+     "text": "03214567890"
+    },
+    {
+     "speaker": "customer",
+     "text": "L size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Printed Kurti",
+       "color": "Pink",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10198",
+     "phone": "03214567890",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 3,
+     "replacement_sku": "SKU0303",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C015",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "sale_item"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10120 ka exchange karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "03335551234"
+    },
+    {
+     "speaker": "customer",
+     "text": "L size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Wash & Wear Kurta",
+       "color": "White",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10120",
+     "phone": "03335551234",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "sale_item_not_exchangeable",
+    "expected_result": {}
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C016",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "outside_window"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Maine 12 din pehle suit liya tha, size exchange karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10044, phone 03451239876"
+    },
+    {
+     "speaker": "customer",
+     "text": "L chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Lawn 3-Piece Stitched",
+       "color": "Pink",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10044",
+     "phone": "03451239876",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "outside_7_day_window",
+    "expected_result": {}
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C017",
+   "category": "refund_complaint",
+   "difficulty": "easy",
+   "tags": [
+    "damaged",
+    "refund"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera shawl phat gaya hai aur mujhe refund chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10150"
+    }
+   ],
+   "expected": {
+    "intent": "refund",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10150",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "damaged_item_refund",
+    "expected_result": {}
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C018",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "angry",
+    "legal_threat"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Ye kya bakwas service hai!! 5 din ho gaye order nahi aaya, main consumer court jaunga"
+    }
+   ],
+   "expected": {
+    "intent": "complaint",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "angry_customer_legal_threat",
+    "expected_result": {}
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C019",
+   "category": "handoff_request",
+   "difficulty": "easy",
+   "tags": [
+    "human_requested"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "mujhe kisi insan se baat karni hai, owner se connect karo"
+    }
+   ],
+   "expected": {
+    "intent": "human_request",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "customer_requested_human",
+    "expected_result": {}
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C020",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "cod_limit",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Black chiffon party wear M 4 chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "Nida Rauf 03041112222 DHA phase 5 Lahore"
+    },
+    {
+     "speaker": "customer",
+     "text": "haan confirm"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Chiffon Party Wear",
+       "color": "Black",
+       "size": "M",
+       "qty": 4
+      }
+     ],
+     "location": "Lahore",
+     "order_id": null,
+     "phone": "03041112222",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "cod_above_limit",
+    "expected_result": {
+     "grand_total": 31996
+    }
+   },
+   "source": "hand_crafted",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C021",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "lilac lawn 2-piece stitched S mein hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "3 order kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 4 street 22, Jinnah Road, Quetta - Areeba Tahir - 03156663632"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Lawn 2-Piece Stitched",
+       "color": "Lilac",
+       "size": "S",
+       "qty": 3
+      }
+     ],
+     "location": "Quetta",
+     "order_id": null,
+     "phone": "03156663632",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 9897,
+     "delivery_charge": 350,
+     "grand_total": 10247,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C022",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Rawalpindi parcel kitne din mein pohanchay ga?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Rawalpindi",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eta_days": [
+      2,
+      4
+     ]
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C023",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Sialkot ka delivery charge kitna hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Sialkot",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "delivery_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C024",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Peshawar mein COD hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Peshawar",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "cod": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C025",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "sale_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size theek nahi hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10366"
+    },
+    {
+     "speaker": "customer",
+     "text": "03148296017"
+    },
+    {
+     "speaker": "customer",
+     "text": "4-5Y size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Kids Hoodie",
+       "color": "Red",
+       "size": "4-5Y",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10366",
+     "phone": "03148296017",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "sale_item_not_exchangeable",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C026",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "refund",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "mujhe order return karna hai, paise wapis chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10300"
+    }
+   ],
+   "expected": {
+    "intent": "refund",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10300",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "refund_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C027",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Bahawalpur ka delivery charge kitna hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Bahawalpur",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "delivery_charge": 350
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C028",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "out_of_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Salam, mint chiffon dupatta hai kya?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Chiffon Dupatta",
+       "color": "Mint",
+       "size": "Free",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": false,
+     "available": 0,
+     "price": 1499,
+     "suggest_alternatives": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C029",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "outside_window",
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, 12 din pehle liya tha, size exchange karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10378"
+    },
+    {
+     "speaker": "customer",
+     "text": "0304-2476134"
+    },
+    {
+     "speaker": "customer",
+     "text": "36 size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Denim Jeans Slim Fit",
+       "color": "Dark Blue",
+       "size": "36",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10378",
+     "phone": "03042476134",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "outside_7_day_window",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C030",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "privacy",
+    "wrong_phone",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10334 ka status batao"
+    },
+    {
+     "speaker": "customer",
+     "text": "mera number 0309 8584638 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10334",
+     "phone": "03098584638",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "deny_status_mismatch",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "share_details": false
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C031",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "peach organza formal suit L ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Organza Formal Suit",
+       "color": "Peach",
+       "size": "L",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 15,
+     "price": 9499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C032",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai beige casual shirt XL hai? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Casual Shirt",
+       "color": "Beige",
+       "size": "XL",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 3,
+     "price": 2299
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C033",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "do black peshawari chappal size 11 chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Maryam Shah\nphone: 03017443256\naddress: house 43 street 11, Satellite Town, Sargodha"
+    },
+    {
+     "speaker": "customer",
+     "text": "ji sahi hai"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Peshawari Chappal",
+       "color": "Black",
+       "size": "11",
+       "qty": 2
+      }
+     ],
+     "location": "Sargodha",
+     "order_id": null,
+     "phone": "03017443256",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 6998,
+     "delivery_charge": 350,
+     "grand_total": 7348,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C034",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "different_product",
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "polo t-shirt ki jagah grey graphic t-shirt L chahiye, exchange kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10355"
+    },
+    {
+     "speaker": "customer",
+     "text": "0337-7044104"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Graphic T-Shirt",
+       "color": "Grey",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10355",
+     "phone": "03377044104",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "different_product_requested",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C035",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "outside_window",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, 15 din pehle liya tha, size exchange karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10359"
+    },
+    {
+     "speaker": "customer",
+     "text": "03125719294"
+    },
+    {
+     "speaker": "customer",
+     "text": "34 size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Chino Trouser",
+       "color": "Khaki",
+       "size": "34",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10359",
+     "phone": "03125719294",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "outside_7_day_window",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C036",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai grey unstitched men wash & wear hai? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Unstitched Men Wash & Wear",
+       "color": "Grey",
+       "size": "Free",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 19,
+     "price": 3499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C037",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "confirmation_required",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "2 black cotton shalwar kameez small chahiye, bhej do"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Shoaib Akhtar\nphone: 03001594502\naddress: house 112 street 3, Jinnah Road, Quetta"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Kameez Shalwar Cotton",
+       "color": "Black",
+       "size": "S",
+       "qty": 2
+      }
+     ],
+     "location": "Quetta",
+     "order_id": null,
+     "phone": "03001594502",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_confirmation",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": false,
+     "must_show_summary": true,
+     "grand_total": 6948
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C038",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "red embroidered dupatta ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Embroidered Dupatta",
+       "color": "Red",
+       "size": "Free",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 22,
+     "price": 2999
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C039",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "sale_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size theek nahi hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10417"
+    },
+    {
+     "speaker": "customer",
+     "text": "0302-6347892"
+    },
+    {
+     "speaker": "customer",
+     "text": "S size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Pullover Sweater",
+       "color": "Maroon",
+       "size": "S",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10417",
+     "phone": "03026347892",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "sale_item_not_exchangeable",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C040",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "staff kab tak reply karta hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "human_hours": "10:00-20:00 PKT"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C041",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "order_not_found",
+    "phone_format"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 99902 kahan hai? number 0306-3540115"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "99902",
+     "phone": "03063540115",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "order_not_found",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C042",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "missing_info"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "lilac hooded sweatshirt women 1 chahiye order karna hai"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Hooded Sweatshirt Women",
+       "color": "Lilac",
+       "size": null,
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_missing_info",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "missing_fields": [
+      "size"
+     ]
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C043",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "confirmation_required",
+    "phone_format",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "1 kala khussa embroidered size 38 chahiye, bhej do"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Ahmad Nawaz hai, number 0322-8667534, address house 57 street 18, Lahore Road, Sheikhupura"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Black",
+       "size": "38",
+       "qty": 1
+      }
+     ],
+     "location": "Sheikhupura",
+     "order_id": null,
+     "phone": "03228667534",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_confirmation",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": false,
+     "must_show_summary": true,
+     "grand_total": 2749
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C044",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, thora tight hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10407"
+    },
+    {
+     "speaker": "customer",
+     "text": "03319945699"
+    },
+    {
+     "speaker": "customer",
+     "text": "XL size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Kameez Shalwar Cotton",
+       "color": "Cream",
+       "size": "XL",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10407",
+     "phone": "03319945699",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 3,
+     "replacement_sku": "SKU0068",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C045",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "privacy",
+    "wrong_phone",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10314 ka status batao"
+    },
+    {
+     "speaker": "customer",
+     "text": "mera number 03179672683 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10314",
+     "phone": "03179672683",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "deny_status_mismatch",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "share_details": false
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C046",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10324 ka status batao, mera number 0303 6295863 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10324",
+     "phone": "03036295863",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Shipped",
+     "courier": "M&P",
+     "tracking_no": "M&P664368"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C047",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "insufficient_stock",
+    "spelling_variants"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "marun cambric co-ord set mdm 6 chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Cambric Co-ord Set",
+       "color": "Maroon",
+       "size": "M",
+       "qty": 6
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 4,
+     "requested_exceeds_stock": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C048",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "angry"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order late ho gaya hai, tum log fraud ho"
+    }
+   ],
+   "expected": {
+    "intent": "complaint",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "angry_customer",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C049",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "budget 2000 hai, kurta suggest karo"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 2000,
+     "category": "Men Kurta"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      1500,
+      2500
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C050",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "payment"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "JazzCash par advance payment kar sakti hun?"
+    }
+   ],
+   "expected": {
+    "intent": "payment_request",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "online_payment_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C051",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, fit nahi aa raha"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10336"
+    },
+    {
+     "speaker": "customer",
+     "text": "03011960278"
+    },
+    {
+     "speaker": "customer",
+     "text": "L size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Waistcoat Classic",
+       "color": "Navy",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10336",
+     "phone": "03011960278",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 2,
+     "replacement_sku": "SKU0091",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C052",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "3000 tak ka shawl ya cardigan dikhao"
+    },
+    {
+     "speaker": "customer",
+     "text": "jaldi dikha do"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 3000,
+     "category": "Women Winter"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      2250,
+      3750
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C053",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size chota hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10360"
+    },
+    {
+     "speaker": "customer",
+     "text": "03203301320"
+    },
+    {
+     "speaker": "customer",
+     "text": "L size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Lawn 2-Piece Stitched",
+       "color": "Lilac",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10360",
+     "phone": "03203301320",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 6,
+     "replacement_sku": "SKU0223",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C054",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "teen navy blue waistcoat classic L chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Talha Iqbal hai, number 0304-4976608, address house 87 street 14, Jinnah Road, Quetta"
+    },
+    {
+     "speaker": "customer",
+     "text": "haan kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Waistcoat Classic",
+       "color": "Navy",
+       "size": "L",
+       "qty": 3
+      }
+     ],
+     "location": "Quetta",
+     "order_id": null,
+     "phone": "03044976608",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 11997,
+     "delivery_charge": 0,
+     "grand_total": 11997,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C055",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "order_not_found",
+    "phone_format"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 99558 kahan hai? number 0301-1361795"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "99558",
+     "phone": "03011361795",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "order_not_found",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C056",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Rawalpindi delivery ke kitne paise lagenge?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Rawalpindi",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "delivery_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C057",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera order kahan hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "order number 10352"
+    },
+    {
+     "speaker": "customer",
+     "text": "0317-1051298"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10352",
+     "phone": "03171051298",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Packed"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C058",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "outside_policy"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Kya ye kurta pehli dhulai mein shrink hota hai?"
+    }
+   ],
+   "expected": {
+    "intent": "other",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "outside_policy",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C059",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "non_exchangeable_category",
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "handbag tote ka color change karna hai, exchange kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10332"
+    },
+    {
+     "speaker": "customer",
+     "text": "0328-8568106"
+    },
+    {
+     "speaker": "customer",
+     "text": "maroon color chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Handbag Tote",
+       "color": "Maroon",
+       "size": "Free",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10332",
+     "phone": "03288568106",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "category_not_exchangeable",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C060",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "navy blue kids kurta shalwar 6-7Y mein hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "3 order kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mahnoor Qureshi, 03214659085, house 8 street 24, Satellite Town, Rawalpindi"
+    },
+    {
+     "speaker": "customer",
+     "text": "bilkul theek hai, order kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Kids Kurta Shalwar",
+       "color": "Navy",
+       "size": "6-7Y",
+       "qty": 3
+      }
+     ],
+     "location": "Rawalpindi",
+     "order_id": null,
+     "phone": "03214659085",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 6897,
+     "delivery_charge": 250,
+     "grand_total": 7147,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C061",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "missing_info",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "white kameez shalwar cotton S 1 chahiye order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Faisal Mehmood hai, number 03038178057"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Kameez Shalwar Cotton",
+       "color": "White",
+       "size": "S",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": "03038178057",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_missing_info",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "missing_fields": [
+      "address",
+      "city"
+     ]
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C062",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "spelling_variants"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai pink printed kurti M hai? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Printed Kurti",
+       "color": "Pink",
+       "size": "M",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 1,
+     "price": 1799
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C063",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "do black graphic t-shirt L chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 107 street 4, Lahore Road, Sheikhupura - Adeel Hussain - 03396327926"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Graphic T-Shirt",
+       "color": "Black",
+       "size": "L",
+       "qty": 2
+      }
+     ],
+     "location": "Sheikhupura",
+     "order_id": null,
+     "phone": "03396327926",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 1900,
+     "delivery_charge": 250,
+     "grand_total": 2150,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C064",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera order kahan hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "order number 10329"
+    },
+    {
+     "speaker": "customer",
+     "text": "0337-1300668"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10329",
+     "phone": "03371300668",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Shipped",
+     "courier": "Leopards",
+     "tracking_no": "LEO807650"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C065",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "sale_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size theek nahi hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10330"
+    },
+    {
+     "speaker": "customer",
+     "text": "03315610591"
+    },
+    {
+     "speaker": "customer",
+     "text": "S size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Plain Cotton Kurti",
+       "color": "Beige",
+       "size": "S",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10330",
+     "phone": "03315610591",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "sale_item_not_exchangeable",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C066",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "unclear",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "hello"
+    },
+    {
+     "speaker": "customer",
+     "text": "kuch chahiye tha"
+    },
+    {
+     "speaker": "customer",
+     "text": "pata nahi yaar"
+    }
+   ],
+   "expected": {
+    "intent": "unknown",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "unclear_after_two_attempts",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C067",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "budget 3000 hai, t-shirt ya shirt suggest karo"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 3000,
+     "category": "Men Western"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      2250,
+      3750
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C068",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "damaged",
+    "refund",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera khaddar 3-piece stitched kharab nikla hai, paise wapis karo"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10357"
+    }
+   ],
+   "expected": {
+    "intent": "refund",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10357",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "damaged_item_refund",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C069",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "quantity_limit"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "brown peshawari chappal size 8 12 chahiye bulk mein"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Peshawari Chappal",
+       "color": "Brown",
+       "size": "8",
+       "qty": 12
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "quantity_above_limit",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C070",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "quantity_limit",
+    "spelling_variants"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "emerald chiffon party suit small 12 chahiye bulk mein"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Chiffon Party Wear",
+       "color": "Emerald",
+       "size": "S",
+       "qty": 12
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "quantity_above_limit",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C071",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Aapka showroom kahan hai? main aa kar dekhna chahta hun"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "online_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C072",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "wrong_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Maine navy mangwaya tha aur maroon bhej diya hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10303"
+    }
+   ],
+   "expected": {
+    "intent": "complaint",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10303",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "wrong_item_received",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C073",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "ek beige straight pants XL chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mehwish Ali, 03311649415, house 64 street 4, Defence Road, Sialkot"
+    },
+    {
+     "speaker": "customer",
+     "text": "haan kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Straight Pants",
+       "color": "Beige",
+       "size": "XL",
+       "qty": 1
+      }
+     ],
+     "location": "Sialkot",
+     "order_id": null,
+     "phone": "03311649415",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 1200,
+     "delivery_charge": 250,
+     "grand_total": 1450,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C074",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "unclear",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai"
+    },
+    {
+     "speaker": "customer",
+     "text": "wo wala dikhao"
+    },
+    {
+     "speaker": "customer",
+     "text": "nahi wahi jo kal tha"
+    }
+   ],
+   "expected": {
+    "intent": "unknown",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "unclear_after_two_attempts",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C075",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "do olive linen kurti L chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Hira Batool\nphone: 03124484526\naddress: house 96 street 21, Peoples Colony, Faisalabad"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurti",
+       "color": "Olive",
+       "size": "L",
+       "qty": 2
+      }
+     ],
+     "location": "Faisalabad",
+     "order_id": null,
+     "phone": "03124484526",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 4398,
+     "delivery_charge": 250,
+     "grand_total": 4648,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C076",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Sialkot parcel kitne din mein pohanchay ga?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Sialkot",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eta_days": [
+      2,
+      4
+     ]
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C077",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Quetta mein COD hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Quetta",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "cod": true
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C078",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "olive linen kurti M mein hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "3 chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Iqra Aslam, 03008394906, house 67 street 21, Jinnah Colony, Faisalabad"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurti",
+       "color": "Olive",
+       "size": "M",
+       "qty": 3
+      }
+     ],
+     "location": "Faisalabad",
+     "order_id": null,
+     "phone": "03008394906",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 6597,
+     "delivery_charge": 250,
+     "grand_total": 6847,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C079",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "non_exchangeable_category",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "embroidered dupatta ka color change karna hai, exchange kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10350"
+    },
+    {
+     "speaker": "customer",
+     "text": "03014613380"
+    },
+    {
+     "speaker": "customer",
+     "text": "gold color chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Embroidered Dupatta",
+       "color": "Gold",
+       "size": "Free",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10350",
+     "phone": "03014613380",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "category_not_exchangeable",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C080",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera order kahan hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "order number 10337"
+    },
+    {
+     "speaker": "customer",
+     "text": "0346 7452198"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10337",
+     "phone": "03467452198",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Shipped",
+     "courier": "TCS",
+     "tracking_no": "TCS323688"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C081",
+   "category": "order_status",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10314 ka status batao, mera number 03149992480 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10314",
+     "phone": "03149992480",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Placed"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C082",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "3 black peshawari chappal size 9 chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Amna Riaz, 0315-8220180, house 9 street 12, Paris Road, Sialkot"
+    },
+    {
+     "speaker": "customer",
+     "text": "bilkul theek hai, order kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Peshawari Chappal",
+       "color": "Black",
+       "size": "9",
+       "qty": 3
+      }
+     ],
+     "location": "Sialkot",
+     "order_id": null,
+     "phone": "03158220180",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 10497,
+     "delivery_charge": 0,
+     "grand_total": 10497,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C083",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai brown abaya classic size 54 hai? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Abaya Classic",
+       "color": "Brown",
+       "size": "54",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 15,
+     "price": 4999
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C084",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "black embroidered kurta L available hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Embroidered Kurta",
+       "color": "Black",
+       "size": "L",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 22,
+     "price": 3499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C085",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "outside_policy"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Kya aap custom stitching karte hain? mera size alag hai"
+    }
+   ],
+   "expected": {
+    "intent": "other",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "outside_policy",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C086",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "insufficient_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "white wash & wear kurta M 6 chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Wash & Wear Kurta",
+       "color": "White",
+       "size": "M",
+       "qty": 6
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 4,
+     "requested_exceeds_stock": true
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C087",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "human_requested"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "manager se baat karao"
+    }
+   ],
+   "expected": {
+    "intent": "human_request",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "customer_requested_human",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C088",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "missing_info"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "hooded sweatshirt women L 1 chahiye order karna hai"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Hooded Sweatshirt Women",
+       "color": null,
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_missing_info",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "missing_fields": [
+      "color"
+     ]
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C089",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "budget 2500 hai, t-shirt ya shirt suggest karo"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 2500,
+     "category": "Men Western"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      1875,
+      3125
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C090",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "human_requested"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "real banda chahiye yaar"
+    }
+   ],
+   "expected": {
+    "intent": "human_request",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "customer_requested_human",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C091",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "human_requested"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Kisi insan ko do, bot se nahi karni baat"
+    }
+   ],
+   "expected": {
+    "intent": "human_request",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "customer_requested_human",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C092",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "privacy",
+    "wrong_phone",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10338 ka status batao"
+    },
+    {
+     "speaker": "customer",
+     "text": "mera number 03298556830 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10338",
+     "phone": "03298556830",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "deny_status_mismatch",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "share_details": false
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C093",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "insufficient_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "mujhe 7 piece beige linen kurti M chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurti",
+       "color": "Beige",
+       "size": "M",
+       "qty": 7
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 4,
+     "requested_exceeds_stock": true
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C094",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "quantity_limit"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "white lawn 2-piece stitched XL 15 pieces chahiye shop ke liye"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Lawn 2-Piece Stitched",
+       "color": "White",
+       "size": "XL",
+       "qty": 15
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "quantity_above_limit",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C095",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_item",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "marun jamawar waistcoat XL ka kya rate hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 same bhej do aur ek green"
+    },
+    {
+     "speaker": "customer",
+     "text": "Shoaib Akhtar, 03096898210, house 54 street 2, Housing Colony, Sheikhupura"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Jamawar Waistcoat",
+       "color": "Maroon",
+       "size": "XL",
+       "qty": 2
+      },
+      {
+       "product": "Jamawar Waistcoat",
+       "color": "Green",
+       "size": "XL",
+       "qty": 1
+      }
+     ],
+     "location": "Sheikhupura",
+     "order_id": null,
+     "phone": "03096898210",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 14997,
+     "delivery_charge": 0,
+     "grand_total": 14997,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C096",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "order_change",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "address change karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10305"
+    }
+   ],
+   "expected": {
+    "intent": "change_order",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10305",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "order_change_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C097",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "tan peshawari chappal size 11 ka kya rate hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 same bhej do aur ek kala"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Imran Sheikh hai, number 03452722022, address house 80 street 16, Defence Road, Sialkot"
+    },
+    {
+     "speaker": "customer",
+     "text": "bilkul theek hai, order kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Peshawari Chappal",
+       "color": "Tan",
+       "size": "11",
+       "qty": 2
+      },
+      {
+       "product": "Peshawari Chappal",
+       "color": "Black",
+       "size": "11",
+       "qty": 1
+      }
+     ],
+     "location": "Sialkot",
+     "order_id": null,
+     "phone": "03452722022",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 10497,
+     "delivery_charge": 0,
+     "grand_total": 10497,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C098",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "payment"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Easypaisa account number do payment karni hai"
+    }
+   ],
+   "expected": {
+    "intent": "payment_request",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "online_payment_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C099",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Karachi ka delivery charge kitna hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Karachi",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "delivery_charge": 350
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C100",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, fit nahi aa raha"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10368"
+    },
+    {
+     "speaker": "customer",
+     "text": "03086210761"
+    },
+    {
+     "speaker": "customer",
+     "text": "size 34 chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Denim Jeans Slim Fit",
+       "color": "Light Blue",
+       "size": "34",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10368",
+     "phone": "03086210761",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 3,
+     "replacement_sku": "SKU0160",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C101",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "teen navy khussa embroidered size 37 chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 90 street 9, Latifabad, Hyderabad - Rabia Anwar - 03436550620"
+    },
+    {
+     "speaker": "customer",
+     "text": "yes confirm"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Navy",
+       "size": "37",
+       "qty": 3
+      }
+     ],
+     "location": "Hyderabad",
+     "order_id": null,
+     "phone": "03436550620",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 7497,
+     "delivery_charge": 350,
+     "grand_total": 7847,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C102",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "navy khussa embroidered size 36 available hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Navy",
+       "size": "36",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 20,
+     "price": 2499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C103",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, thora tight hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10327"
+    },
+    {
+     "speaker": "customer",
+     "text": "03048836152"
+    },
+    {
+     "speaker": "customer",
+     "text": "M size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Kameez Shalwar Cotton",
+       "color": "Black",
+       "size": "M",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10327",
+     "phone": "03048836152",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 1,
+     "replacement_sku": "SKU0062",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C104",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "outside_window",
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, 20 din pehle liya tha, size exchange karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10388"
+    },
+    {
+     "speaker": "customer",
+     "text": "0341-3785222"
+    },
+    {
+     "speaker": "customer",
+     "text": "M size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Kameez Shalwar Cotton",
+       "color": "White",
+       "size": "M",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10388",
+     "phone": "03413785222",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "outside_7_day_window",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C105",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Salam, black embroidered abaya size 56 hai kya?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Embroidered Abaya",
+       "color": "Black",
+       "size": "56",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 5,
+     "price": 6499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C106",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "sky blue lawn 3-piece stitched L ka kya rate hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 same bhej do aur ek mint"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Kinza Javed\nphone: 03207207547\naddress: house 36 street 17, I-8, Islamabad"
+    },
+    {
+     "speaker": "customer",
+     "text": "ji sahi hai"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Lawn 3-Piece Stitched",
+       "color": "Sky Blue",
+       "size": "L",
+       "qty": 2
+      },
+      {
+       "product": "Lawn 3-Piece Stitched",
+       "color": "Mint",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": "Islamabad",
+     "order_id": null,
+     "phone": "03207207547",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 13497,
+     "delivery_charge": 0,
+     "grand_total": 13497,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C107",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "kya Lahore mein cash on delivery milti hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Lahore",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "cod": true
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C108",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai maroon pashmina shawl hai? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Pashmina Shawl",
+       "color": "Maroon",
+       "size": "Free",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 2,
+     "price": 3999
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C109",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "cream woolen cardigan XL ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Woolen Cardigan",
+       "color": "Cream",
+       "size": "XL",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 14,
+     "price": 2650
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C110",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "sale ka suit exchange hoga?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "sale_items_allowed": false
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C111",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera order kahan hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "order number 10320"
+    },
+    {
+     "speaker": "customer",
+     "text": "0307 9113571"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10320",
+     "phone": "03079113571",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Placed"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C112",
+   "category": "order_status",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10334 ka status batao, mera number 03329871120 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10334",
+     "phone": "03329871120",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Delivered",
+     "courier": "M&P",
+     "tracking_no": "M&P426195",
+     "delivered_date": "2026-10-16"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C113",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "exchange kitne din mein ho sakta hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "window_days": 7,
+     "sale_items_allowed": false
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C114",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "order_not_found"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 99471 kahan hai? number 03311387592"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "99471",
+     "phone": "03311387592",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "order_not_found",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C115",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Salam, navy khussa embroidered size 36 hai kya?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Navy",
+       "size": "36",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 20,
+     "price": 2499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C116",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "out_of_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "black embroidered abaya size 52 available hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Embroidered Abaya",
+       "color": "Black",
+       "size": "52",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": false,
+     "available": 0,
+     "price": 6499,
+     "suggest_alternatives": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C117",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "delivery free kab hoti hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "free_delivery_min": 10000
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C118",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "brown peshawari chappal size 9 ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Peshawari Chappal",
+       "color": "Brown",
+       "size": "9",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 4,
+     "price": 3499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C119",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "wrong_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Maine brown mangwaya tha aur teal bhej diya hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10340"
+    }
+   ],
+   "expected": {
+    "intent": "complaint",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10340",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "wrong_item_received",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C120",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "spelling_variants"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "black linen ka kurta L ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurta",
+       "color": "Black",
+       "size": "L",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 1,
+     "price": 2499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C121",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "unclear",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "acha suno"
+    },
+    {
+     "speaker": "customer",
+     "text": "wo kapra"
+    },
+    {
+     "speaker": "customer",
+     "text": "arre wohi jo bataya tha"
+    }
+   ],
+   "expected": {
+    "intent": "unknown",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "unclear_after_two_attempts",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C122",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "4000 tak ka winter ke liye hoodie ya sweater dikhao"
+    },
+    {
+     "speaker": "customer",
+     "text": "jaldi dikha do"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 4000,
+     "category": "Men Winter"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      3000,
+      5000
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C123",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Salam, black khussa embroidered size 36 hai kya?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Black",
+       "size": "36",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 25,
+     "price": 2499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C124",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "replacement_out_of_stock",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size chota hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10371"
+    },
+    {
+     "speaker": "customer",
+     "text": "03214136334"
+    },
+    {
+     "speaker": "customer",
+     "text": "XL size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Printed Kurti",
+       "color": "Green",
+       "size": "XL",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10371",
+     "phone": "03214136334",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "replacement_out_of_stock",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C125",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "order_change",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "address change karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10310"
+    }
+   ],
+   "expected": {
+    "intent": "change_order",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10310",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "order_change_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C126",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size bara aa gaya"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10369"
+    },
+    {
+     "speaker": "customer",
+     "text": "03343972584"
+    },
+    {
+     "speaker": "customer",
+     "text": "XL size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Cotton Kurta",
+       "color": "White",
+       "size": "XL",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10369",
+     "phone": "03343972584",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 4,
+     "replacement_sku": "SKU0020",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C127",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "budget 2500 hai, kurti suggest karo"
+    },
+    {
+     "speaker": "customer",
+     "text": "jaldi dikha do"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 2500,
+     "category": "Women Kurti"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      1875,
+      3125
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C128",
+   "category": "handoff_request",
+   "difficulty": "hard",
+   "tags": [
+    "outside_policy"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "gift wrapping aur message card ho jayega?"
+    }
+   ],
+   "expected": {
+    "intent": "other",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "outside_policy",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C129",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Hyderabad delivery kitne din mein hoti hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Hyderabad",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eta_days": [
+      4,
+      6
+     ]
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C130",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "bargaining"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "navy khussa embroidered size 38 last price kya hoga?"
+    }
+   ],
+   "expected": {
+    "intent": "discount_request",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Navy",
+       "size": "38",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "discount_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C131",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10338 ka status batao, mera number 0344-0934269 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10338",
+     "phone": "03440934269",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Shipped",
+     "courier": "Leopards",
+     "tracking_no": "LEO493376"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C132",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai black leather belt size 36 hai? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Leather Belt",
+       "color": "Black",
+       "size": "36",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 4,
+     "price": 1299
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C133",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "damaged",
+    "refund",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mera hooded sweatshirt women kharab nikla hai, paise wapis karo"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10301"
+    }
+   ],
+   "expected": {
+    "intent": "refund",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10301",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "damaged_item_refund",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C134",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "kala palazzo pants large mein hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "ek chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Sadia Parveen hai, number 0322 1854914, address house 21 street 9, Peoples Colony, Gujranwala"
+    },
+    {
+     "speaker": "customer",
+     "text": "Haan confirm"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Palazzo Pants",
+       "color": "Black",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": "Gujranwala",
+     "order_id": null,
+     "phone": "03221854914",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 1299,
+     "delivery_charge": 250,
+     "grand_total": 1549,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C135",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "cod_limit",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "black chiffon party wear mdm 4 chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Sadia Parveen hai, number 03143854690, address house 112 street 17, Gulshan-e-Iqbal, Karachi"
+    },
+    {
+     "speaker": "customer",
+     "text": "bilkul theek hai, order kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Chiffon Party Wear",
+       "color": "Black",
+       "size": "M",
+       "qty": 4
+      }
+     ],
+     "location": "Karachi",
+     "order_id": null,
+     "phone": "03143854690",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "cod_above_limit",
+    "expected_result": {
+     "grand_total": 31996
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C136",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_item",
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "white palazzo pants L ka kya rate hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 same bhej do aur ek beige"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Mahnoor Qureshi hai, number 0338-9832982, address house 17 street 22, Latifabad, Hyderabad"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Palazzo Pants",
+       "color": "White",
+       "size": "L",
+       "qty": 2
+      },
+      {
+       "product": "Palazzo Pants",
+       "color": "Beige",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": "Hyderabad",
+     "order_id": null,
+     "phone": "03389832982",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 3897,
+     "delivery_charge": 350,
+     "grand_total": 4247,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C137",
+   "category": "exchange",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, thora tight hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10349"
+    },
+    {
+     "speaker": "customer",
+     "text": "03056697961"
+    },
+    {
+     "speaker": "customer",
+     "text": "L size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Cigarette Trouser",
+       "color": "Grey",
+       "size": "L",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10349",
+     "phone": "03056697961",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 5,
+     "replacement_sku": "SKU0387",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C138",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "confirmation_required",
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "ek black chiffon party wear S chahiye, bhej do"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 7 street 23, DHA Phase 6, Karachi - Sidra Yousaf - 0311-2835769"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Chiffon Party Wear",
+       "color": "Black",
+       "size": "S",
+       "qty": 1
+      }
+     ],
+     "location": "Karachi",
+     "order_id": null,
+     "phone": "03112835769",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_confirmation",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": false,
+     "must_show_summary": true,
+     "grand_total": 8349
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C139",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Salam, sky blue lawn 3-piece stitched XL hai kya?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Lawn 3-Piece Stitched",
+       "color": "Sky Blue",
+       "size": "XL",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 8,
+     "price": 4499
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C140",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "cancellation",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order cancel kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10316"
+    }
+   ],
+   "expected": {
+    "intent": "cancel_order",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10316",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "order_cancellation_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C141",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "brown casual sandals size 41 ka kya rate hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 same bhej do aur ek beige"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 68 street 5, Hayatabad, Peshawar - Sadia Parveen - 03319307336"
+    },
+    {
+     "speaker": "customer",
+     "text": "ji sahi hai"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Casual Sandals",
+       "color": "Brown",
+       "size": "41",
+       "qty": 2
+      },
+      {
+       "product": "Casual Sandals",
+       "color": "Beige",
+       "size": "41",
+       "qty": 1
+      }
+     ],
+     "location": "Peshawar",
+     "order_id": null,
+     "phone": "03319307336",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 4800,
+     "delivery_charge": 350,
+     "grand_total": 5150,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C142",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "damaged",
+    "refund",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "khaddar 3-piece stitched ki stitching khuli hui hai, mujhe refund chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10375"
+    }
+   ],
+   "expected": {
+    "intent": "refund",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10375",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "damaged_item_refund",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C143",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "maroon embroidered kurta extra large available hai kya?"
+    },
+    {
+     "speaker": "customer",
+     "text": "ek chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 55 street 22, Housing Colony, Sheikhupura - Usman Ghani - 03279906593"
+    },
+    {
+     "speaker": "customer",
+     "text": "Haan confirm"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Embroidered Kurta",
+       "color": "Maroon",
+       "size": "XL",
+       "qty": 1
+      }
+     ],
+     "location": "Sheikhupura",
+     "order_id": null,
+     "phone": "03279906593",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 3499,
+     "delivery_charge": 250,
+     "grand_total": 3749,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C144",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "brown unstitched winter khaddar ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Unstitched Winter Khaddar",
+       "color": "Brown",
+       "size": "Free",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 13,
+     "price": 3450
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C145",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Exchange policy kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "window_days": 7,
+     "sale_items_allowed": false
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C146",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "insufficient_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "gold khussa embroidered size 39 4 chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Gold",
+       "size": "39",
+       "qty": 4
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 2,
+     "requested_exceeds_stock": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C147",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "angry"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Ye kya bakwas service hai! koi jawab hi nahi deta"
+    }
+   ],
+   "expected": {
+    "intent": "complaint",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "angry_customer",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C148",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "lilac lawn 2 piece XL mein hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "1 chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Mahnoor Qureshi\nphone: 03378794326\naddress: house 115 street 1, University Town, Peshawar"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Lawn 2-Piece Stitched",
+       "color": "Lilac",
+       "size": "XL",
+       "qty": 1
+      }
+     ],
+     "location": "Peshawar",
+     "order_id": null,
+     "phone": "03378794326",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 3299,
+     "delivery_charge": 350,
+     "grand_total": 3649,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C149",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_item",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "white cigarette trouser M ka kya rate hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 same bhej do aur ek marun"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 41 street 22, Latifabad, Hyderabad - Rabia Anwar - 03484791889"
+    },
+    {
+     "speaker": "customer",
+     "text": "done, bhej do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Cigarette Trouser",
+       "color": "White",
+       "size": "M",
+       "qty": 2
+      },
+      {
+       "product": "Cigarette Trouser",
+       "color": "Maroon",
+       "size": "M",
+       "qty": 1
+      }
+     ],
+     "location": "Hyderabad",
+     "order_id": null,
+     "phone": "03484791889",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 3597,
+     "delivery_charge": 350,
+     "grand_total": 3947,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C150",
+   "category": "policy_question",
+   "difficulty": "hard",
+   "tags": [
+    "context_reference",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Sialkot delivery kitne din mein hoti hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "aur charges?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Sialkot",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eta_days": [
+      2,
+      4
+     ],
+     "delivery_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C151",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "budget 4000 hai, winter ke liye hoodie ya sweater suggest karo"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 3 options bata do"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 4000,
+     "category": "Men Winter"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      3000,
+      5000
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C152",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "refund",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "pasand nahi aya, refund karo"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10315"
+    }
+   ],
+   "expected": {
+    "intent": "refund",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10315",
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "refund_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C153",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "non_exchangeable_category",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "jersey hijab ka color change karna hai, exchange kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10383"
+    },
+    {
+     "speaker": "customer",
+     "text": "03358930597"
+    },
+    {
+     "speaker": "customer",
+     "text": "grey color chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Jersey Hijab",
+       "color": "Grey",
+       "size": "Free",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10383",
+     "phone": "03358930597",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "category_not_exchangeable",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C154",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "black peshawari chappal size 9 ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Peshawari Chappal",
+       "color": "Black",
+       "size": "9",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 4,
+     "price": 3499
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C155",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "replacement_out_of_stock",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, thora tight hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10326"
+    },
+    {
+     "speaker": "customer",
+     "text": "03139424646"
+    },
+    {
+     "speaker": "customer",
+     "text": "M size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Cigarette Trouser",
+       "color": "Black",
+       "size": "M",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10326",
+     "phone": "03139424646",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "replacement_out_of_stock",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C156",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bahar ke mulk mein delivery hoti hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "delivers_abroad": false
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C157",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Mujhe exchange karna hai, size chota hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10408"
+    },
+    {
+     "speaker": "customer",
+     "text": "0327-0567090"
+    },
+    {
+     "speaker": "customer",
+     "text": "M size chahiye"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurta",
+       "color": "White",
+       "size": "M",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10408",
+     "phone": "03270567090",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_exchange",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "eligible": true,
+     "days_since_delivery": 5,
+     "replacement_sku": "SKU0006",
+     "exchange_courier_charge": 250
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C158",
+   "category": "refund_complaint",
+   "difficulty": "hard",
+   "tags": [
+    "bargaining"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "price bohat zyada hai, kam kar do"
+    }
+   ],
+   "expected": {
+    "intent": "discount_request",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "discount_request",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C159",
+   "category": "stock_check",
+   "difficulty": "hard",
+   "tags": [
+    "out_of_stock"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "beige cotton kurta M available hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Cotton Kurta",
+       "color": "Beige",
+       "size": "M",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": false,
+     "available": 0,
+     "price": 1999,
+     "suggest_alternatives": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C160",
+   "category": "recommendation",
+   "difficulty": "hard",
+   "tags": [
+    "budget"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "3000 tak ka jootay dikhao"
+    }
+   ],
+   "expected": {
+    "intent": "recommend",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": 3000,
+     "category": "Footwear"
+    },
+    "expected_action": "recommend",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "price_range": [
+      2250,
+      3750
+     ],
+     "in_stock_only": true
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C161",
+   "category": "order_status",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10322 ka status batao, mera number 03412061769 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10322",
+     "phone": "03412061769",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "get_order_status",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "status": "Delivered",
+     "courier": "M&P",
+     "tracking_no": "M&P473253",
+     "delivered_date": "2026-10-14"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C162",
+   "category": "order",
+   "difficulty": "easy",
+   "tags": [
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "red plain cotton kurti L available hai kya?"
+    },
+    {
+     "speaker": "customer",
+     "text": "teen chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Mera naam Zainab Fatima hai, number 03101756820, address house 21 street 12, Model Town A, Bahawalpur"
+    },
+    {
+     "speaker": "customer",
+     "text": "haan kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Plain Cotton Kurti",
+       "color": "Red",
+       "size": "L",
+       "qty": 3
+      }
+     ],
+     "location": "Bahawalpur",
+     "order_id": null,
+     "phone": "03101756820",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 3150,
+     "delivery_charge": 350,
+     "grand_total": 3500,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C163",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "bhai black graphic t-shirt XL hai? price kya hai?"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Graphic T-Shirt",
+       "color": "Black",
+       "size": "XL",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 17,
+     "price": 950
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C164",
+   "category": "stock_check",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "white cigarette trouser M ka price aur availability batao"
+    }
+   ],
+   "expected": {
+    "intent": "check_stock",
+    "entities": {
+     "items": [
+      {
+       "product": "Cigarette Trouser",
+       "color": "White",
+       "size": "M",
+       "qty": null
+      }
+     ],
+     "location": null,
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "check_stock",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "in_stock": true,
+     "available": 19,
+     "price": 1199
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C165",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "cod_limit",
+    "phone_format",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "burgundy embroidered abaya size 52 4 chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Mahnoor Qureshi\nphone: 0326-0739273\naddress: house 76 street 16, Latifabad, Hyderabad"
+    },
+    {
+     "speaker": "customer",
+     "text": "bilkul theek hai, order kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Embroidered Abaya",
+       "color": "Burgundy",
+       "size": "52",
+       "qty": 4
+      }
+     ],
+     "location": "Hyderabad",
+     "order_id": null,
+     "phone": "03260739273",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "cod_above_limit",
+    "expected_result": {
+     "grand_total": 25996
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C166",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "cod_limit",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "maroon chiffon party suit extra large 4 chahiye"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Hira Batool\nphone: 03019815247\naddress: house 92 street 15, Satellite Town, Sargodha"
+    },
+    {
+     "speaker": "customer",
+     "text": "ji sahi hai"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Chiffon Party Wear",
+       "color": "Maroon",
+       "size": "XL",
+       "qty": 4
+      }
+     ],
+     "location": "Sargodha",
+     "order_id": null,
+     "phone": "03019815247",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "cod_above_limit",
+    "expected_result": {
+     "grand_total": 31996
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C167",
+   "category": "order_status",
+   "difficulty": "hard",
+   "tags": [
+    "privacy",
+    "wrong_phone",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "order 10337 ka status batao"
+    },
+    {
+     "speaker": "customer",
+     "text": "mera number 03395389650 hai"
+    }
+   ],
+   "expected": {
+    "intent": "order_status",
+    "entities": {
+     "items": [],
+     "location": null,
+     "order_id": "10337",
+     "phone": "03395389650",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "deny_status_mismatch",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "share_details": false
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C168",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "confirmation_required",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "ek maroon kids kurta shalwar 2-3Y chahiye, bhej do"
+    },
+    {
+     "speaker": "customer",
+     "text": "house 19 street 21, Peoples Colony, Gujranwala - Kashif Mirza - 03421236360"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Kids Kurta Shalwar",
+       "color": "Maroon",
+       "size": "2-3Y",
+       "qty": 1
+      }
+     ],
+     "location": "Gujranwala",
+     "order_id": null,
+     "phone": "03421236360",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "request_confirmation",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": false,
+     "must_show_summary": true,
+     "grand_total": 2549
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C169",
+   "category": "exchange",
+   "difficulty": "hard",
+   "tags": [
+    "different_product",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "cambric co-ord set ki jagah black chiffon party wear S chahiye, exchange kar do"
+    },
+    {
+     "speaker": "customer",
+     "text": "order 10394"
+    },
+    {
+     "speaker": "customer",
+     "text": "03497453581"
+    }
+   ],
+   "expected": {
+    "intent": "exchange",
+    "entities": {
+     "items": [
+      {
+       "product": "Chiffon Party Wear",
+       "color": "Black",
+       "size": "S",
+       "qty": 1
+      }
+     ],
+     "location": null,
+     "order_id": "10394",
+     "phone": "03497453581",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "escalate",
+    "should_escalate": true,
+    "escalation_reason": "different_product_requested",
+    "expected_result": {}
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C170",
+   "category": "policy_question",
+   "difficulty": "easy",
+   "tags": [],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "Lahore mein COD hai?"
+    }
+   ],
+   "expected": {
+    "intent": "policy_question",
+    "entities": {
+     "items": [],
+     "location": "Lahore",
+     "order_id": null,
+     "phone": null,
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "answer_policy",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "cod": true
+    }
+   },
+   "source": "template_generated",
+   "split": "test"
+  },
+  {
+   "conv_id": "C171",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "white linen kurti large mein hai?"
+    },
+    {
+     "speaker": "customer",
+     "text": "2 chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "naam: Zainab Fatima\nphone: 0318-0845850\naddress: house 2 street 21, Satellite Town, Rawalpindi"
+    },
+    {
+     "speaker": "customer",
+     "text": "haan kar do"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Linen Kurti",
+       "color": "White",
+       "size": "L",
+       "qty": 2
+      }
+     ],
+     "location": "Rawalpindi",
+     "order_id": null,
+     "phone": "03180845850",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 4398,
+     "delivery_charge": 250,
+     "grand_total": 4648,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  },
+  {
+   "conv_id": "C172",
+   "category": "order",
+   "difficulty": "hard",
+   "tags": [
+    "phone_format",
+    "spelling_variants",
+    "multi_turn"
+   ],
+   "turns": [
+    {
+     "speaker": "customer",
+     "text": "2 navy blue khussa embroidered size 39 chahiye, order karna hai"
+    },
+    {
+     "speaker": "customer",
+     "text": "Usman Ghani, 0304-5037849, house 11 street 18, I-8, Islamabad"
+    },
+    {
+     "speaker": "customer",
+     "text": "Haan confirm"
+    }
+   ],
+   "expected": {
+    "intent": "place_order",
+    "entities": {
+     "items": [
+      {
+       "product": "Khussa Embroidered",
+       "color": "Navy",
+       "size": "39",
+       "qty": 2
+      }
+     ],
+     "location": "Islamabad",
+     "order_id": null,
+     "phone": "03045037849",
+     "budget": null,
+     "category": null
+    },
+    "expected_action": "create_order",
+    "should_escalate": false,
+    "escalation_reason": null,
+    "expected_result": {
+     "order_created": true,
+     "product_total": 4998,
+     "delivery_charge": 250,
+     "grand_total": 5248,
+     "payment": "COD"
+    }
+   },
+   "source": "template_generated",
+   "split": "dev"
+  }
+ ]
+}

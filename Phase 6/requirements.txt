@@ -1,0 +1,8 @@
+# Core runtime (the agent itself is pure stdlib: csv/json/re/sqlite3)
+fastapi
+uvicorn
+
+# Optional training extras — only needed for `python train_model.py`.
+# The agent runs without them; the trained model is a fallback signal only.
+# scikit-learn
+# rapidfuzz

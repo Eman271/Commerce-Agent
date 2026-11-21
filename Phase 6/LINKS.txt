@@ -1,0 +1,10 @@
+Project F26-07 - Deliverable 6 links
+
+GitHub repository (compulsory): https://github.com/Eman271/Commerce-Agent
+Video: F26-07_Demo_Video.mp4 is included in this package. Upload it (YouTube unlisted or Google Drive) and submit that link.
+Hosted web application: Not hosted yet. The web application runs locally:
+  pip install -r requirements.txt
+  python app.py
+  then open http://127.0.0.1:8000
+Model file: models/intent_model.pkl (TF-IDF + Logistic Regression intent classifier, test accuracy 0.731), scores in models/metrics.json
+Final report: F26-07_Technical_Report.pdf and F26-07_Technical_Report.docx (in this package and to be added to the GitHub repository)

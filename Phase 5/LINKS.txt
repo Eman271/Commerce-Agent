@@ -1,0 +1,7 @@
+Project F26-07 - Deliverable 5 links
+
+GitHub repository: https://github.com/Eman271/Commerce-Agent
+Hosted web application: Not hosted yet. The web application runs locally:
+  pip install -r requirements.txt
+  python app.py
+  then open http://127.0.0.1:8000

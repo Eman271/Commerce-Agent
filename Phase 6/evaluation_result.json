@@ -1,0 +1,23 @@
+{
+  "overall": {
+    "n": 172,
+    "action_accuracy": 0.8837,
+    "escalation_precision": 0.8525,
+    "escalation_recall": 0.963,
+    "escalation_f1": 0.9043
+  },
+  "dev": {
+    "n": 120,
+    "action_accuracy": 0.8667,
+    "escalation_precision": 0.7955,
+    "escalation_recall": 0.9722,
+    "escalation_f1": 0.875
+  },
+  "test": {
+    "n": 52,
+    "action_accuracy": 0.9231,
+    "escalation_precision": 1.0,
+    "escalation_recall": 0.9444,
+    "escalation_f1": 0.9714
+  }
+}

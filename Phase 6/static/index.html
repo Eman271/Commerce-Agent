@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saira Fashion House | AI Shopping Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b2b2c; --plum:#274d60; --rose:#0a7075; --rose-dark:#07585c;
+    --gold:#86a3b8; --paper:#f2f7f7; --card:#ffffff; --line:#d7e3e3;
+    --muted:#5f7a7d; --ok:#0a7075; --warn:#8a6d1c; --bad:#c22f2f;
+    --chip:#e7f0f0; --deep:#032f30; --deepest:#021716; --bright:#0b949a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Manrope","Segoe UI",system-ui,Arial,sans-serif;font-size:17px;background:var(--paper);color:var(--ink)}
+  h1,h2,h3,.serif{font-family:"Poppins","Segoe UI",sans-serif}
+  [data-theme="dark"]{--ink:#e8f3f3;--plum:#cfe6e6;--paper:#021716;--card:#032f30;--line:#0d4447;--muted:#9db8ba;--chip:#06383b;--rose:#0b949a;--rose-dark:#0a7075;--gold:#86a3b8}
+  [data-theme="dark"] .msg.agent{background:#04282a;color:var(--ink)}
+  [data-theme="dark"] .mbox input,[data-theme="dark"] .toolbar input,[data-theme="dark"] .toolbar select{background:#04282a;color:var(--ink)}
+  [data-theme="dark"] .helper{background:#04282a}
+  [data-theme="dark"] .garment .tag{background:#eaf4f4}
+  .topbar{background:var(--deepest);color:#eaf4f4}
+  .topin{max-width:1180px;margin:0 auto;padding:7px 22px;display:flex;align-items:center;gap:12px}
+  .tbrand{font-size:14.5px;letter-spacing:.05em}
+  .tright{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .tbtn{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;width:34px;height:34px;font-size:17px;cursor:pointer;line-height:1}
+  .tbtn:hover{background:rgba(255,255,255,.14)}
+  header{position:relative;overflow:hidden;background:linear-gradient(120deg,#021716,#032f30 55%,#274d60);color:#f2f8f8}
+  .hero{display:flex;gap:26px;align-items:flex-start}
+  .herotext{flex:1;min-width:280px}
+  .closet{position:relative;width:470px;max-width:46vw;flex:none;padding-top:6px}
+  .rail{height:9px;border-radius:5px;background:linear-gradient(180deg,#86a3b8,#274d60);box-shadow:0 3px 8px rgba(0,0,0,.35);position:relative}
+  .rail::before,.rail::after{content:"";position:absolute;top:9px;width:7px;height:196px;background:linear-gradient(180deg,#274d60,#032f30);border-radius:4px}
+  .rail::before{left:8px}.rail::after{right:8px}
+  .garments{display:flex;justify-content:space-between;padding:0 16px;transition:transform .3s ease}
+  .garment{width:84px;text-align:center;perspective:520px;cursor:pointer;transition:transform .3s ease}
+  .swing{transform-origin:50% 0;animation:sway 5.2s ease-in-out infinite;animation-delay:calc(var(--i)*.55s)}
+  @keyframes sway{0%,100%{transform:rotate(2.4deg)}50%{transform:rotate(-2.4deg)}}
+  .garment svg{width:100%;height:auto;display:block;transition:transform .45s ease;transform:rotateY(26deg);filter:drop-shadow(0 8px 10px rgba(0,0,0,.28))}
+  .garment:hover svg{transform:rotateY(0deg) scale(1.08)}
+  .garment .tag{opacity:0;transform:translateY(5px);transition:all .3s ease;background:#fff;color:#032f30;border-radius:9px;font-size:13.5px;line-height:1.35;padding:6px 4px;margin-top:3px;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+  .garment:hover .tag{opacity:1;transform:none}
+  @media (max-width:860px){.hero{flex-direction:column}.closet{max-width:100%;width:100%}}
+  .hero{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:44px 22px 30px}
+  .hero .kicker{letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:var(--gold)}
+  .hero h1{font-size:41px;margin:8px 0 6px;font-weight:600}
+  .hero p{max-width:640px;color:#efdde4;margin:0 0 14px;line-height:1.55}
+  .hero .badges{display:flex;gap:8px;flex-wrap:wrap}
+  .badge{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:5px 12px;font-size:13.5px;background:rgba(255,255,255,.08)}
+  .badge b{color:var(--gold);font-weight:600}
+  nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 1px 6px rgba(74,21,48,.06)}
+  .navin{max-width:1180px;margin:0 auto;display:flex;gap:4px;padding:8px 14px;flex-wrap:wrap;align-items:center}
+  .tab{border:0;background:transparent;padding:9px 16px;border-radius:999px;font-size:15.5px;cursor:pointer;color:var(--plum)}
+  .tab:hover{background:var(--chip)}
+  .tab.active{background:var(--rose);color:#ffffff !important;-webkit-text-fill-color:#ffffff;font-weight:700}
+  .navin .right{margin-left:auto;font-size:14px;color:var(--muted)}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ok);margin-right:6px;vertical-align:middle}
+  .dot.down{background:var(--bad)}
+  main{max-width:1180px;margin:0 auto;padding:22px}
+  section.view{display:none}
+  section.view.active{display:block}
+  .chatgrid{display:grid;grid-template-columns:minmax(320px,1fr) 380px;gap:18px;align-items:start}
+  @media (max-width:900px){.chatgrid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 10px rgba(74,21,48,.05)}
+  .chatcard{display:flex;flex-direction:column;height:640px;overflow:hidden}
+  .chathead{background:#075e54;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-family:"Poppins",sans-serif;font-size:19px;color:#fff;border:2px solid rgba(255,255,255,.5)}
+  .chathead .sub{font-size:13px;opacity:.85}
+  #msgs{flex:1;overflow-y:auto;padding:16px;background:#ece5dd;background-image:radial-gradient(rgba(74,21,48,.05) 1px,transparent 1px);background-size:18px 18px}
+  .msg{max-width:82%;padding:9px 12px;border-radius:10px;margin:0 0 9px;line-height:1.45;font-size:15.5px;white-space:pre-wrap;word-wrap:break-word;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .msg.cust{background:#dcf8c6;margin-left:auto;border-top-right-radius:2px}
+  .msg.agent{background:#fff;border-top-left-radius:2px}
+  .msg.sys{background:#fff3cd;margin:0 auto 9px;text-align:center;font-size:14px;max-width:95%}
+  .chatinput{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--chip)}
+  .chatinput input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:15.5px;outline:none}
+  .chatinput input:focus{border-color:var(--rose)}
+  .btn{background:var(--rose);color:#ffffff !important;-webkit-text-fill-color:#ffffff;font-weight:800;letter-spacing:.01em;border:0;border-radius:999px;padding:10px 18px;font-size:15px;cursor:pointer}
+  .btn:hover{background:var(--rose-dark)}
+  .btn.ghost{background:#ffffff;color:var(--rose-dark) !important;-webkit-text-fill-color:var(--rose-dark);border:1px solid var(--rose)}
+  .btn.small{padding:6px 12px;font-size:14px}
+  .btn:disabled{opacity:.55;cursor:wait}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+  .chip{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;cursor:pointer}
+  .chip:hover{border-color:var(--rose);color:var(--rose-dark)}
+  .sidecol{display:flex;flex-direction:column;gap:18px}
+  .assistant{overflow:hidden}
+  .assistant .bubble{position:relative;margin:10px 12px 0;font-size:14px;background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:15px;line-height:1.45;cursor:pointer}
+  .assistant .bubble:hover{border-color:var(--rose)}
+  .assistant .bubble::after{content:"";position:absolute;left:50%;bottom:-8px;width:14px;height:14px;background:var(--chip);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:translateX(-50%) rotate(45deg)}
+  .assistant .bubble .try{display:block;font-size:12.5px;color:var(--rose);margin-top:4px;letter-spacing:.04em;text-transform:uppercase}
+  .assistant video{width:100%;height:168px;object-fit:cover;object-position:center 18%;display:block;background:#fff}
+  .assistant .abar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-top:1px solid var(--line)}
+  .assistant .abar b{font-family:"Poppins",sans-serif;color:var(--plum);font-size:14.5px}
+  .trace{padding:16px}
+  .trace h3{margin:0 0 4px;color:var(--plum)}
+  .trace .hint{font-size:14.5px;color:var(--muted);margin-bottom:12px}
+  .kv{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;font-size:14.5px}
+  .kv dt{color:var(--muted)} .kv dd{margin:0;word-break:break-word}
+  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:600}
+  .pill.ACT{background:#e2f3e9;color:var(--ok)} .pill.ASK{background:#fdf0d3;color:var(--warn)}
+  .pill.BLOCK{background:#fbe3e1;color:var(--bad)} .pill.HANDOFF{background:#fbe3e1;color:var(--bad)}
+  .confbar{height:8px;background:#eee;border-radius:99px;overflow:hidden;margin-top:4px}
+  .confbar i{display:block;height:100%;background:var(--rose)}
+  .tools{font-family:Consolas,monospace;font-size:13px;background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:8px 10px;white-space:pre-wrap;word-break:break-word;max-height:180px;overflow:auto}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:18px}
+  .stat{padding:16px}
+  .stat .num{font-family:"Poppins",sans-serif;font-size:31px;color:var(--plum)}
+  .stat .lab{font-size:14px;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:900px){.grid2{grid-template-columns:1fr}}
+  .panel{padding:16px;margin-bottom:18px}
+  .panel h3{margin:0 0 10px;color:var(--plum)}
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+  .bar-row{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;margin:5px 0;font-size:14.5px}
+  .bar{height:12px;background:#f1e7e2;border-radius:99px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--rose)}
+  .toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+  .toolbar input,.toolbar select{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:15px;background:var(--card);color:var(--ink)}
+  .catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .prod{padding:14px}
+  .prod .nm{font-family:"Poppins",sans-serif;font-size:18px;color:var(--plum)}
+  .prod .meta{font-size:14px;color:var(--muted);line-height:1.5}
+  .stock-ok{color:var(--ok);font-weight:600}.stock-low{color:var(--warn);font-weight:600}.stock-out{color:var(--bad);font-weight:600}
+  .sale{color:var(--rose);font-weight:700;font-size:13px;letter-spacing:.05em}
+  .banner{display:none;background:#fbe3e1;color:var(--bad);border:1px solid #f2b8b3;border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:15px}
+
+  /* ---------- 3D depth, helper, badge, modals, auth ---------- */
+  .tilt{transform-style:preserve-3d;transition:transform .25s ease, box-shadow .25s ease;will-change:transform}
+  .tilt:hover{box-shadow:0 18px 34px rgba(74,21,48,.18)}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  .hero-cards{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 22px 36px;display:flex;gap:14px;flex-wrap:wrap}
+  .hcard{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:14px 18px;color:#fdf6ee;backdrop-filter:blur(6px);min-width:200px;flex:1}
+  .hcard .n{font-family:"Poppins",sans-serif;font-size:25px;color:var(--gold)}
+  .hcard .l{font-size:13.5px;opacity:.9}
+  .chatcard{flex-direction:row}
+  .chatmain{flex:1;display:flex;flex-direction:column;min-width:0}
+  .helper{width:118px;flex:none;background:var(--chip);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding:12px 8px;gap:8px}
+  .helper img{width:96px;height:140px;object-fit:cover;object-position:center top;border-radius:12px;background:#f7efe6;animation:bob 3.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .helper .cap{font-size:14px;color:var(--muted);text-align:center;line-height:1.4}
+  .helper .who{font-size:13.5px;font-weight:700;color:var(--plum)}
+  .dots{display:none;gap:4px}
+  .dots i{width:7px;height:7px;border-radius:50%;background:var(--rose);animation:blink 1s infinite}
+  .dots i:nth-child(2){animation-delay:.18s}.dots i:nth-child(3){animation-delay:.36s}
+  @keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+  .helper.thinking .dots{display:flex}
+  @media (max-width:700px){.chatcard{flex-direction:column}.helper{width:100%;flex-direction:row;border-right:0;border-bottom:1px solid var(--line)}.helper img{width:54px;height:64px}}
+  #emanBadge{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:9px;background:var(--plum);color:#fdf6ee;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 16px 6px 6px;cursor:pointer;box-shadow:0 10px 26px rgba(43,18,32,.35);font-size:15px}
+  #emanBadge img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:center top;background:#f7efe6}
+  #emanBadge:hover{background:var(--rose-dark)}
+  #emanBadge .star-mini{color:var(--gold);font-size:13px;display:block;line-height:1}
+  .modal{position:fixed;inset:0;background:rgba(43,18,32,.55);display:none;align-items:center;justify-content:center;z-index:60;padding:18px}
+  .modal.open{display:flex}
+  .mbox{background:#fff;border-radius:18px;max-width:520px;width:100%;padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.3);max-height:92vh;overflow:auto}
+  .mbox h3{margin:0 0 6px;color:var(--plum);font-size:25px}
+  .mbox .x{float:right;background:none;border:0;font-size:23px;cursor:pointer;color:var(--muted)}
+  .typewriter{font-size:16px;line-height:1.65;min-height:120px;white-space:pre-wrap}
+  .typewriter::after{content:"▍";color:var(--rose);animation:blink 0.8s infinite}
+  .stars{display:flex;gap:6px;font-size:35px;margin:10px 0 4px}
+  .stars span{cursor:pointer;color:#ddd;transition:transform .12s}
+  .stars span.on{color:var(--gold)}
+  .stars span:hover{transform:scale(1.2)}
+  .mbox{background:var(--card);color:var(--ink)}
+  .mbox input{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:15.5px;margin:0 0 10px;background:var(--card);color:var(--ink)}
+  .err{color:#c22f2f;font-weight:700;font-size:14.5px;min-height:18px}
+  .passwrap{position:relative}
+  .passwrap input{padding-right:44px}
+  .eye{position:absolute;right:10px;top:50%;transform:translateY(-60%);background:none;border:0;font-size:14px;font-weight:700;cursor:pointer;color:var(--rose)}
+  .authtabs{display:flex;gap:8px;margin-bottom:14px}
+  .authtabs button{flex:1}
+  .authtabs .btn{color:#fff}
+  .authtabs .btn.ghost{background:var(--chip);color:var(--rose);border:1px solid var(--rose)}
+  .ownerflex{display:flex;gap:16px;align-items:flex-start}
+  .ownerflex img{width:130px;height:190px;object-fit:cover;object-position:center top;border-radius:14px;background:#f7efe6;flex:none}
+  @media (max-width:560px){.ownerflex{flex-direction:column}.ownerflex img{width:100px;height:140px}}
+  footer{max-width:1180px;margin:0 auto;padding:8px 22px 30px;color:var(--muted);font-size:13.5px}
+  .small{font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="topin">
+  <span class="tbrand">SAIRA FASHION HOUSE · ONLINE STORE</span>
+  <span class="tright">
+    <button class="tbtn" id="themeBtn" title="Switch between dark and light mode"></button>
+    <span id="authArea"><button class="btn ghost small" id="loginBtn">Login</button>
+    <button class="btn small" id="signupBtn">Sign up</button></span>
+  </span>
+</div></div>
+<header>
+
+  <div class="hero">
+    <div class="herotext">
+    <h1>Saira Fashion House</h1>
+    <p>Meet the shopping assistant of our online fashion store. It checks live stock, takes orders, tracks parcels and arranges exchanges, all from the real catalog and store policy. When a case needs a person, it hands the chat to our team with the full context.</p>
+    <div class="badges">
+      <span class="badge"><b>572</b> product variants</span>
+      <span class="badge"><b>50</b> products · 16 categories</span>
+      <span class="badge">Live catalog and policy</span>
+      <span class="badge">Open 7 days a week</span>
+    </div>
+    </div>
+    <div class="closet" id="closet"><div class="rail"></div><div class="garments" id="garments">
+  <div class="garment" style="--i:0"><div class="swing"><svg viewBox="0 0 100 150"><path d="M50 4a6 6 0 1 1 6 6" fill="none" stroke="#86a3b8" stroke-width="3"/><path d="M50 16v8M50 24L16 42M50 24l34 18" stroke="#86a3b8" stroke-width="3" fill="none"/><path d="M30 40l20-9 20 9 13 15-10 5v72H27V60l-10-5z" fill="#0a7075"/></svg></div><div class="tag">Linen Kurta<br><b>Rs 2,499</b></div></div>
+  <div class="garment" style="--i:1"><div class="swing"><svg viewBox="0 0 100 150"><path d="M50 4a6 6 0 1 1 6 6" fill="none" stroke="#86a3b8" stroke-width="3"/><path d="M50 16v8M50 24L16 42M50 24l34 18" stroke="#86a3b8" stroke-width="3" fill="none"/><path d="M35 40l15-8 15 8 9 16-11 6 8 70H29l8-70-11-6z" fill="#86a3b8"/></svg></div><div class="tag">Abaya Classic<br><b>Rs 4,999</b></div></div>
+  <div class="garment" style="--i:2"><div class="swing"><svg viewBox="0 0 100 150"><path d="M50 4a6 6 0 1 1 6 6" fill="none" stroke="#86a3b8" stroke-width="3"/><path d="M50 16v8M50 24L16 42M50 24l34 18" stroke="#86a3b8" stroke-width="3" fill="none"/><path d="M31 40l19-9 19 9 12 14-9 5v45H28V59l-9-5z" fill="#274d60"/><rect x="34" y="112" width="13" height="26" fill="#274d60"/><rect x="53" y="112" width="13" height="26" fill="#274d60"/></svg></div><div class="tag">Cambric Co-ord Set<br><b>Rs 3,799</b></div></div>
+  <div class="garment" style="--i:3"><div class="swing"><svg viewBox="0 0 100 150"><path d="M50 4a6 6 0 1 1 6 6" fill="none" stroke="#86a3b8" stroke-width="3"/><path d="M50 16v8M50 24L16 42M50 24l34 18" stroke="#86a3b8" stroke-width="3" fill="none"/><path d="M30 40l20-9 20 9 13 15-10 5v72H27V60l-10-5z" fill="#0b949a"/></svg></div><div class="tag">Cotton Kurta<br><b>Rs 1,999</b></div></div>
+  <div class="garment" style="--i:4"><div class="swing"><svg viewBox="0 0 100 150"><path d="M50 4a6 6 0 1 1 6 6" fill="none" stroke="#86a3b8" stroke-width="3"/><path d="M50 16v8M50 24L16 42M50 24l34 18" stroke="#86a3b8" stroke-width="3" fill="none"/><path d="M38 42c14 8 30 8 24 26-5 16-20 12-16 28 3 14 14 16 10 34-3 12-20 10-22-2-2-16 10-18 6-34-4-18-16-14-12-30 3-12 4-18 10-22z" fill="#032f30" opacity=".92"/></svg></div><div class="tag">Chiffon Dupatta<br><b>Rs 1,499</b></div></div>
+</div></div>
+  </div>
+</header>
+
+<nav><div class="navin">
+  <button class="tab active" data-view="chat">Chat</button>
+  <button class="tab" data-view="catalog">Catalog</button>
+  <button class="tab" data-view="dashboard">Owner Dashboard</button>
+  <button class="tab" data-view="evaluation">Evaluation</button>
+  <button class="tab" data-view="owner">Handoffs &amp; Orders</button>
+  <button class="tab" data-view="purchases" id="tabPurchases" style="display:none">My Purchases</button>
+  <span class="right"><span class="dot" id="srvDot"></span><span id="srvText">server: …</span></span>
+</div></nav>
+
+<main>
+  <div class="banner" id="banner">Server not reachable. Start it with <b>python app.py</b> and open this page at http://127.0.0.1:8000</div>
+
+  <!-- ================= CHAT ================= -->
+  <section class="view active" id="view-chat">
+    <div class="chips" id="chips"></div>
+    <div class="chatgrid">
+      <div class="card chatcard">
+        <div class="helper" id="helperBox">
+          <img id="helperImg" src="/assets/char_greeting.webp" alt="Eman, your helper">
+          <div class="who">Eman</div>
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="cap" id="helperCap">Hello! I am right here with you.</div>
+        </div>
+        <div class="chatmain">
+        <div class="chathead">
+          <div class="avatar">S</div>
+          <div><div><b>Saira Fashion House</b></div><div class="sub">AI assistant · staff available 10 AM to 8 PM</div></div>
+        </div>
+        <div id="msgs"></div>
+        <form class="chatinput" id="chatForm">
+          <input id="chatText" placeholder="Type a message… e.g. Is the black linen kurta available in medium?" autocomplete="off">
+          <button class="btn" type="submit">Send</button>
+        </form>
+        </div>
+      </div>
+      <div class="sidecol">
+      <div class="card trace">
+        <h3>How the agent decided</h3>
+        <div class="hint">Every reply shows the intent, the details it picked out, its confidence, the safety decision and the tools it used. Nothing is hidden.</div>
+        <dl class="kv">
+          <dt>Intent</dt><dd id="tIntent">Waiting</dd>
+          <dt>Action</dt><dd id="tAction">Waiting</dd>
+          <dt>Decision</dt><dd id="tDecision">Waiting</dd>
+          <dt>Confidence</dt><dd><span id="tConf">Waiting</span><div class="confbar"><i id="tConfBar" style="width:0%"></i></div></dd>
+          <dt>Reason</dt><dd id="tReason">Waiting</dd>
+          <dt>Entities</dt><dd id="tEntities">Waiting</dd>
+        </dl>
+        <h4 style="margin:14px 0 6px;color:var(--plum)">Tools called</h4>
+        <div class="tools" id="tTools">No tools yet</div>
+        <button class="btn ghost small" id="newChat" style="margin-top:14px">New conversation</button>
+        <button class="btn ghost small" id="resetAll" style="margin-top:14px">Reset store data</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CATALOG ================= -->
+  <section class="view" id="view-catalog">
+    <div class="toolbar">
+      <input id="catQ" placeholder="Search name, color, category…" size="28">
+      <select id="catCat"><option value="">All categories</option></select>
+      <label class="small"><input type="checkbox" id="catStock"> In stock only</label>
+      <button class="btn small" id="catGo">Search</button>
+      <span class="small" id="catCount"></span>
+    </div>
+    <div class="catgrid" id="catGrid"></div>
+  </section>
+
+  <!-- ================= DASHBOARD ================= -->
+  <section class="view" id="view-dashboard">
+    <div class="toolbar"><button class="btn small" id="dashRefresh">↻ Refresh dashboard</button>
+    <span class="small">Live from the same database the agent uses. Chat, place an order, then refresh.</span></div>
+    <div class="stats" id="dashStats"></div>
+    <div class="grid2">
+      <div class="card panel"><h3>What customers ask about (intents)</h3><div id="dashIntents"></div></div>
+      <div class="card panel"><h3>Top ordered products</h3><div id="dashTop"></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card panel"><h3>Low stock (1–4 left)</h3><div id="dashLow"></div></div>
+      <div class="card panel"><h3>Out of stock</h3><div id="dashOut"></div></div>
+    </div>
+    <div class="card panel"><h3>Recent activity (audit log)</h3><div id="dashAudit"></div></div>
+  </section>
+
+  <!-- ================= EVALUATION ================= -->
+  <section class="view" id="view-evaluation">
+    <div class="card panel">
+      <h3>Evaluation on the labelled conversations</h3>
+      <p class="small">The harness replays all 172 labelled conversations from <i>conversations.json</i> against a fresh
+      database each time and compares the agent's final action and escalation decision with the labels.
+      Run it live and the numbers are recomputed from the same conversations, right in front of you.</p>
+      <div class="toolbar">
+        <button class="btn" id="evalRun">▶ Run evaluation (172 conversations)</button>
+        <span class="small" id="evalNote"></span>
+      </div>
+      <div class="stats" id="evalStats"></div>
+      <div id="evalTable"></div>
+    </div>
+    <div class="card panel">
+      <h3>Concurrency test: can two customers oversell the last unit?</h3>
+      <p class="small">Simulated customers race to reserve the same variant at the same moment. Stock reservation is one
+      atomic database update, so the total reserved can never exceed the stock on hand.</p>
+      <div class="toolbar">
+        <label class="small">SKU <input id="contSku" value="SKU0003" size="9"></label>
+        <label class="small">Customers <input id="contN" type="number" value="8" min="2" max="32" style="width:70px"></label>
+        <button class="btn" id="contRun">▶ Run race</button>
+      </div>
+      <div id="contResult" class="small"></div>
+    </div>
+    <div class="card panel">
+      <h3>Trained model (Deliverable 6 model file)</h3>
+      <div id="modelInfo" class="small">TF-IDF + Logistic Regression intent classifier, trained on the 120 dev conversations
+      (<i>train_model.py</i> → <i>models/intent_model.pkl</i>). In the live agent it is only a fallback signal.
+      Our testing showed rules and guardrails are more reliable, and the model never triggers a state changing action on its own.</div>
+    </div>
+  </section>
+
+  <!-- ================= OWNER ================= -->
+  <section class="view" id="view-owner">
+    <div class="toolbar"><button class="btn small" id="ownerRefresh">↻ Refresh</button>
+    <span class="small">Chats the agent handed to human staff, with the reason, and every order in the system.</span></div>
+    <div class="card panel"><h3>Escalation queue</h3><div id="escTable"></div></div>
+    <div class="card panel"><h3>Orders</h3><div id="ordTable"></div></div>
+  </section>
+  <!-- ================= MY PURCHASES ================= -->
+  <section class="view" id="view-purchases">
+    <div class="card panel"><h3>My purchases</h3>
+      <p class="small">Orders placed with the phone number on your account, including orders you place in the chat with that number.</p>
+      <div id="myOrders"></div>
+    </div>
+  </section>
+</main>
+
+<button id="emanBadge" title="Meet the owner">
+  <img src="/assets/char_greeting.webp" alt="Eman Fatima">
+  <span>Eman Fatima<span class="star-mini" id="badgeStars">★ owner of this website</span></span>
+</button>
+
+<div class="modal" id="ownerModal"><div class="mbox">
+  <button class="x" data-close="ownerModal">×</button>
+  <div class="ownerflex">
+    <img src="/assets/char_greeting.webp" alt="Eman Fatima, animated">
+    <div style="flex:1">
+      <h3>Eman Fatima</h3>
+      <div class="typewriter" id="ownerText"></div>
+    </div>
+  </div>
+  <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+  <b style="color:var(--plum)">Would you like to give a review?</b>
+  <div class="stars" id="starRow"><span data-s="1">★</span><span data-s="2">★</span><span data-s="3">★</span><span data-s="4">★</span><span data-s="5">★</span></div>
+  <div class="small" id="reviewNote">Tap a star and your review is saved on the server.</div>
+</div></div>
+
+<div class="modal" id="authModal"><div class="mbox">
+  <button class="x" data-close="authModal">×</button>
+  <h3 id="authTitle">Welcome back</h3>
+  <div class="authtabs">
+    <button class="btn small" id="tabLogin">Login</button>
+    <button class="btn ghost small" id="tabSignup">Sign up</button>
+  </div>
+  <form id="authForm">
+    <input id="authName" placeholder="Full name (sign up only)" style="display:none">
+    <input id="authPhone" placeholder="Phone number e.g. 03001234567 (sign up only)" style="display:none">
+    <input id="authEmail" type="email" placeholder="Email" required>
+    <div class="passwrap"><input id="authPass" type="password" placeholder="Password" required><button type="button" class="eye" id="eyeBtn" title="Show or hide password">Show</button></div>
+    <div class="small" id="passHint" style="display:none;margin:-4px 0 10px">Password needs at least 8 characters, with a number and a symbol such as @ # or !</div>
+    <button class="btn" type="submit" id="authSubmit" style="width:100%">Login</button>
+    <div class="err" id="authNote"></div>
+  </form>
+  <p class="small">Tip: sign up with the phone number <b>03001234567</b> and open <b>My Purchases</b> to see the orders already placed with that number.</p>
+</div></div>
+
+<footer>© Saira Fashion House · Online fashion delivered across Pakistan · All prices and stock on this site are live from the store catalog.</footer>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const api=async(p,b)=>{const hd={"Content-Type":"application/json"};const tk=localStorage.getItem("f26_token");if(tk)hd["Authorization"]="Bearer "+tk;const r=await fetch(p,b?{method:"POST",headers:hd,body:JSON.stringify(b)}:{headers:hd});if(!r.ok)throw new Error("HTTP "+r.status);return r.json()};
+let sid="web-"+Math.random().toString(36).slice(2,10);
+
+/* ---------------- navigation ---------------- */
+$$(".tab").forEach(t=>t.onclick=()=>{
+  $$(".tab").forEach(x=>x.classList.remove("active")); t.classList.add("active");
+  $$(".view").forEach(v=>v.classList.remove("active"));
+  $("#view-"+t.dataset.view).classList.add("active");
+  if(t.dataset.view==="dashboard") loadDashboard();
+  if(t.dataset.view==="owner") loadOwner();
+  if(t.dataset.view==="catalog"&&!window._catLoaded){window._catLoaded=true;loadCatalog();}
+  if(t.dataset.view==="evaluation") loadEvaluation();
+  if(t.dataset.view==="purchases") loadMyOrders();
+});
+
+/* ---------------- chat ---------------- */
+const SAMPLES=[
+ ["Check stock","Is the black linen kurta available in medium? What is the price?"],
+ ["Out of stock","I need the white cotton kurta in medium. Is it available?"],
+ ["Delivery policy","Do you offer cash on delivery in Lahore? What are the delivery charges?"],
+ ["Order status","My order number is 10231 and my phone is 03001234567"],
+ ["Refund request","My kurta arrived torn. I want a refund"],
+ ["Outside policy","Can this suit be dry cleaned? What warranty does it have?"],
+];
+const chips=$("#chips");
+SAMPLES.forEach(([lab,txt])=>{const c=document.createElement("button");c.className="chip";c.textContent=lab;c.title=txt;c.onclick=()=>{send(txt)};chips.appendChild(c)});
+
+function bub(text,who){const d=document.createElement("div");d.className="msg "+who;d.textContent=text;$("#msgs").appendChild(d);$("#msgs").scrollTop=1e9;return d}
+function sys(text){bub(text,"sys")}
+function showTrace(tr){
+  if(!tr)return;
+  $("#tIntent").textContent=tr.intent||"None";
+  $("#tAction").textContent=tr.action||"None";
+  $("#tDecision").innerHTML=tr.decision?`<span class="pill ${tr.decision}">${tr.decision}</span>`:"None";
+  const c=typeof tr.confidence==="number"?tr.confidence:null;
+  $("#tConf").textContent=c===null?"None":Math.round(c*100)+"%";
+  $("#tConfBar").style.width=c===null?"0%":(c*100)+"%";
+  $("#tReason").textContent=tr.reason||"None";
+  $("#tEntities").textContent=tr.entities&&Object.keys(tr.entities).length?JSON.stringify(tr.entities):"None";
+  $("#tTools").textContent=(tr.tools&&tr.tools.length)?tr.tools.map(t=>typeof t==="string"?t:JSON.stringify(t)).join("\n"):"(no tool called)";
+}
+async function send(text){
+  text=(text||"").trim(); if(!text)return;
+  bub(text,"cust"); $("#chatText").value="";
+  setHelper("thinking");
+  const wait=bub("…","agent");
+  try{
+    const r=await api("/api/chat",{session_id:sid,message:text});
+    wait.textContent=r.reply||"(no reply)"; showTrace(r.trace);
+    const tr=r.trace||{};
+    if(tr.decision==="HANDOFF"||tr.action==="deny_status_mismatch") setHelper("sorry");
+    else if(tr.action==="create_order"||tr.action==="create_exchange") setHelper("happy");
+    else setHelper("greeting");
+    $("#msgs").scrollTop=1e9;
+  }catch(e){ wait.textContent="No reply from the server. Please check that python app.py is running."; setHelper("sorry"); }
+}
+$("#chatForm").onsubmit=e=>{e.preventDefault();send($("#chatText").value)};
+$("#newChat").onclick=()=>{sid="web-"+Math.random().toString(36).slice(2,10);$("#msgs").innerHTML="";greet()};
+$("#resetAll").onclick=async()=>{try{await api("/api/reset",{});sid="web-"+Math.random().toString(36).slice(2,10);$("#msgs").innerHTML="";sys("Store data reset. Catalog, stock and orders are back to the original dataset.");greet()}catch(e){sys("Reset failed. The server is not reachable.")}};
+function greet(){bub("Welcome to Saira Fashion House. I can check stock, take your order, tell you your order status and help with an exchange. What would you like to look at today?","agent")}
+
+/* ---------------- helper character ---------------- */
+const HELPER={
+  greeting:{img:"/assets/char_greeting.webp",cap:"Hello! I am right here with you."},
+  thinking:{img:"/assets/char_greeting.webp",cap:"Thinking… checking the catalog and the policy."},
+  happy:{img:"/assets/char_happy.webp",cap:"Done! All sorted."},
+  sorry:{img:"/assets/char_sorry.webp",cap:"A team member will help with this. I have passed your case along."},
+};
+function setHelper(state){
+  const cfg=HELPER[state]||HELPER.greeting, box=$("#helperBox");
+  $("#helperImg").src=cfg.img; $("#helperCap").textContent=cfg.cap;
+  box.classList.toggle("thinking",state==="thinking");
+}
+
+/* ---------------- 3D tilt + reveal ---------------- */
+$$(".tilt").forEach(el=>{
+  el.addEventListener("mousemove",e=>{
+    const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    el.style.transform=`perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(4px)`;
+  });
+  el.addEventListener("mouseleave",()=>{el.style.transform=""});
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in")}),{threshold:.08});
+$$(".card,.panel,.stat").forEach(el=>{el.classList.add("reveal");io.observe(el)});
+
+/* ---------------- catalog ---------------- */
+async function loadCatalog(){
+  const q=$("#catQ").value,cat=$("#catCat").value,ins=$("#catStock").checked;
+  const p=new URLSearchParams({limit:60}); if(q)p.set("q",q); if(cat)p.set("category",cat); if(ins)p.set("in_stock","true");
+  try{
+    const d=await api("/api/catalog?"+p.toString());
+    $("#catCount").textContent=d.total+" variants";
+    if(!window._cats){window._cats=true;const cats=[...new Set(d.items.map(i=>i.category))].sort();cats.forEach(c=>{const o=document.createElement("option");o.value=c;o.textContent=c;$("#catCat").appendChild(o)})}
+    $("#catGrid").innerHTML=d.items.map(i=>{
+      const st=i.available>4?["stock-ok","In stock · "+i.available]:i.available>0?["stock-low","Low stock · "+i.available+" left"]:["stock-out","Out of stock"];
+      return `<div class="card prod"><div class="nm">${i.name}</div>
+        <div class="meta">${i.category} · ${i.color} · Size ${i.size}<br>${i.sku} · Rs. ${Number(i.price).toLocaleString()}
+        ${i.is_sale||i.sale?' · <span class="sale">SALE</span>':""}<br><span class="${st[0]}">${st[1]}</span></div></div>`}).join("")||'<p class="small">No variants match.</p>';
+  }catch(e){$("#catGrid").innerHTML='<p class="small">Server not reachable.</p>'}
+}
+$("#catGo").onclick=loadCatalog; $("#catQ").onkeydown=e=>{if(e.key==="Enter")loadCatalog()};
+
+/* ---------------- dashboard ---------------- */
+function stat(num,lab){return `<div class="card stat"><div class="num">${num}</div><div class="lab">${lab}</div></div>`}
+function miniTable(rows,cols){if(!rows||!rows.length)return '<p class="small">Nothing yet.</p>';
+  return "<table><tr>"+cols.map(c=>"<th>"+c[1]+"</th>").join("")+"</tr>"+rows.map(r=>"<tr>"+cols.map(c=>"<td>"+(r[c[0]]??"")+"</td>").join("")+"</tr>").join("")+"</table>"}
+async function loadDashboard(){
+  try{
+    const d=await api("/api/dashboard");
+    $("#dashStats").innerHTML=
+      stat(d.conversations,"Conversations handled")+stat(d.orders,"Orders in system")+
+      stat("Rs. "+Number(d.revenue).toLocaleString(),"Order revenue")+stat(d.open_escalations,"Open escalations")+
+      stat(d.handled_percent+"%","Handled without a human");
+    const ic=d.intent_counts||{}, mx=Math.max(1,...Object.values(ic));
+    $("#dashIntents").innerHTML=Object.keys(ic).length?Object.entries(ic).sort((a,b)=>b[1]-a[1]).map(([k,v])=>
+      `<div class="bar-row"><span>${k}</span><div class="bar"><i style="width:${v/mx*100}%"></i></div><span>${v}</span></div>`).join(""):'<p class="small">No chats yet. Talk to the agent first.</p>';
+    $("#dashTop").innerHTML=miniTable(d.top_products,[["name","Product"],["n","Orders"]]);
+    $("#dashLow").innerHTML=miniTable(d.low_stock,[["name","Product"],["color","Color"],["size","Size"],["stock","Left"]]);
+    $("#dashOut").innerHTML=miniTable(d.out_of_stock,[["name","Product"],["color","Color"],["size","Size"]]);
+    $("#dashAudit").innerHTML=miniTable((d.recent_audit||[]).slice(0,10).map(a=>({when:new Date((a.ts||0)*1000).toLocaleTimeString(),action:a.action,detail:String(a.detail||"").slice(0,110)})),[["when","Time"],["action","Action"],["detail","Detail"]]);
+  }catch(e){$("#dashStats").innerHTML='<p class="small">Server not reachable.</p>'}
+}
+$("#dashRefresh").onclick=loadDashboard;
+
+/* ---------------- evaluation ---------------- */
+function evalCards(d){
+  const pct=x=>x===null||x===undefined?"n/a":(x*100).toFixed(1)+"%";
+  $("#evalStats").innerHTML=stat(pct(d.action_accuracy),"Action accuracy (all 172)")+stat(pct(d.escalation_f1),"Escalation F1")+
+    stat(pct(d.escalation_recall),"Escalation recall")+stat(pct(d.escalation_precision),"Escalation precision");
+}
+async function loadEvaluation(){
+  try{const d=await api("/api/evaluation"); if(d&&d.overall){renderEval(d)}}catch(e){}
+}
+function renderEval(d){
+  evalCards(d.overall||d);
+  const rows=[["overall","All conversations",d.overall],["dev","Development split",d.dev],["test","Held-out test split",d.test]].filter(r=>r[2]);
+  $("#evalTable").innerHTML="<table><tr><th>Set</th><th>n</th><th>Action accuracy</th><th>Esc. precision</th><th>Esc. recall</th><th>Esc. F1</th></tr>"+
+    rows.map(([k,lab,v])=>`<tr><td>${lab}</td><td>${v.n}</td><td>${(v.action_accuracy*100).toFixed(1)}%</td><td>${(v.escalation_precision*100).toFixed(1)}%</td><td>${(v.escalation_recall*100).toFixed(1)}%</td><td>${(v.escalation_f1*100).toFixed(2)}%</td></tr>`).join("")+"</table>";
+}
+$("#evalRun").onclick=async()=>{
+  const b=$("#evalRun"); b.disabled=true; $("#evalNote").textContent="Running. This replays 172 conversations, it takes a little while…";
+  try{const d=await api("/api/evaluation/run",{}); renderEval(d); $("#evalNote").textContent="Done. These are live results from this machine, just now."}
+  catch(e){$("#evalNote").textContent="Evaluation failed. The server is not reachable."}
+  b.disabled=false;
+};
+$("#contRun").onclick=async()=>{
+  const b=$("#contRun"); b.disabled=true; $("#contResult").textContent="Racing…";
+  try{
+    const d=await api("/api/test/contention",{sku:$("#contSku").value.trim(),customers:Number($("#contN").value)||8,qty:1});
+    $("#contResult").innerHTML=`SKU <b>${d.sku}</b>: ${d.available_before} unit(s) available, ${d.customers} customers raced → <b>${d.reservations_won} reservation(s) won</b>, available afterwards: ${d.available_after}. Oversold: <b>${d.oversold?"YES, A BUG":"No ✓"}</b>`;
+  }catch(e){$("#contResult").textContent="Test failed. Check the SKU exists and the server is running."}
+  b.disabled=false;
+};
+
+/* ---------------- owner ---------------- */
+async function loadOwner(){
+  try{
+    const e=await api("/api/escalations");
+    const esc=e.escalations||[];
+    $("#escTable").innerHTML=esc.length?"<table><tr><th>#</th><th>Reason</th><th>Customer message</th><th>Status</th><th></th></tr>"+
+      esc.slice(0,30).map(x=>`<tr><td>${x.id}</td><td>${x.reason||""}</td><td>${String(x.message||x.summary||"").slice(0,90)}</td><td>${x.status||"open"}</td>
+      <td>${x.status==="open"?`<button class="btn small" onclick="resolveEsc(${x.id})">Resolve</button>`:""}</td></tr>`).join("")+"</table>"
+      :'<p class="small">No escalations yet. Trigger one from the chat (ask for a refund) and refresh.</p>';
+    const o=await api("/api/orders");
+    const ords=o.orders||[];
+    $("#ordTable").innerHTML=miniTable(ords.slice(0,30).map(x=>({id:x.order_id,name:x.customer_name||x.customer||"",sku:x.sku,qty:x.qty,city:x.city||"",status:x.status,total:"Rs. "+Number(x.total||0).toLocaleString()})),
+      [["id","Order"],["name","Customer"],["sku","SKU"],["qty","Qty"],["city","City"],["status","Status"],["total","Total"]]);
+  }catch(e){$("#escTable").innerHTML='<p class="small">Server not reachable.</p>'}
+}
+window.resolveEsc=async id=>{try{await api("/api/escalations/"+id+"/resolve",{});loadOwner()}catch(e){}};
+$("#ownerRefresh").onclick=loadOwner;
+
+/* ---------------- boot ---------------- */
+(async()=>{
+  greet();
+  try{
+    const s=await api("/api/status");
+    $("#srvText").textContent="server: online · "+s.variants+" variants · "+s.products+" products";
+  }catch(e){
+    $("#srvDot").classList.add("down"); $("#srvText").textContent="server: offline"; $("#banner").style.display="block";
+  }
+})();
+
+/* ---------------- auth (login / sign up) ---------------- */
+let authMode="login";
+const tok=()=>localStorage.getItem("f26_token")||"";
+const usr=()=>{try{return JSON.parse(localStorage.getItem("f26_user")||"null")}catch(e){return null}};
+function openModal(id){$("#"+id).classList.add("open")}
+function closeModal(id){$("#"+id).classList.remove("open")}
+$$("[data-close]").forEach(b=>b.onclick=()=>closeModal(b.dataset.close));
+$$(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("open")}));
+function setAuthMode(m){
+  authMode=m;
+  $("#passHint").style.display=m==="signup"?"block":"none";
+  $("#authNote").textContent="";
+  $("#authName").style.display=m==="signup"?"block":"none";
+  $("#authPhone").style.display=m==="signup"?"block":"none";
+  $("#authTitle").textContent=m==="signup"?"Create your account":"Welcome back";
+  $("#authSubmit").textContent=m==="signup"?"Sign up":"Login";
+  $("#tabLogin").className="btn small"+(m==="login"?"":" ghost");
+  $("#tabSignup").className="btn small"+(m==="signup"?"":" ghost");
+}
+$("#tabLogin").onclick=()=>setAuthMode("login");
+$("#tabSignup").onclick=()=>setAuthMode("signup");
+$("#loginBtn").onclick=()=>{setAuthMode("login");openModal("authModal")};
+$("#signupBtn").onclick=()=>{setAuthMode("signup");openModal("authModal")};
+function updateAuthUI(){
+  const u=usr(), area=$("#authArea");
+  if(u){
+    area.innerHTML=`<span style="color:var(--plum)">Hi, <b>${u.name}</b></span> <button class="btn ghost small" id="logoutBtn">Logout</button>`;
+    $("#tabPurchases").style.display="";
+    $("#logoutBtn").onclick=()=>{localStorage.removeItem("f26_token");localStorage.removeItem("f26_user");updateAuthUI();sys("You are logged out.")};
+  }else{
+    area.innerHTML=`<button class="btn ghost small" id="loginBtn">Login</button> <button class="btn small" id="signupBtn">Sign up</button>`;
+    $("#tabPurchases").style.display="none";
+    $("#loginBtn").onclick=()=>{setAuthMode("login");openModal("authModal")};
+    $("#signupBtn").onclick=()=>{setAuthMode("signup");openModal("authModal")};
+  }
+}
+$("#eyeBtn").onclick=()=>{const i=$("#authPass");const show=i.type==="password";i.type=show?"text":"password";$("#eyeBtn").textContent=show?"Hide":"Show";i.focus()};
+$("#authForm").onsubmit=async e=>{
+  e.preventDefault();
+  const body={email:$("#authEmail").value.trim(),password:$("#authPass").value};
+  if(authMode==="signup"){
+    const pw=body.password;
+    if(pw.length<8){$("#authNote").textContent="Password must be at least 8 characters long.";return}
+    if(!/\d/.test(pw)){$("#authNote").textContent="Password must contain a number.";return}
+    if(!/[^A-Za-z0-9]/.test(pw)){$("#authNote").textContent="Password must contain a symbol such as @ # or !";return}
+    body.name=$("#authName").value.trim();body.phone=$("#authPhone").value.trim();
+  }
+  try{
+    const r=await fetch("/api/auth/"+authMode,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||"failed");
+    localStorage.setItem("f26_token",d.token); localStorage.setItem("f26_user",JSON.stringify(d.user));
+    updateAuthUI(); closeModal("authModal");
+    sys("Welcome, "+d.user.name+"! You are signed in. Your purchases are under the My Purchases tab.");
+  }catch(err){ $("#authNote").textContent=err.message; }
+};
+async function loadMyOrders(){
+  const box=$("#myOrders");
+  try{
+    const r=await fetch("/api/my/orders",{headers:{"Authorization":"Bearer "+tok()}});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||"login required");
+    box.innerHTML=d.orders.length?miniTable(d.orders.map(x=>({id:x.order_id,item:x.sku,qty:x.qty,city:x.city||"",status:x.status,total:"Rs. "+Number(x.total||0).toLocaleString(),track:x.tracking_no||""})),
+      [["id","Order"],["item","SKU"],["qty","Qty"],["city","City"],["status","Status"],["total","Total"],["track","Tracking"]])
+      :'<p class="small">No orders with your phone number yet. Place an order in the chat using this phone number and it will appear here.</p>';
+  }catch(e){ box.innerHTML='<p class="small">'+e.message+'</p>'; }
+}
+
+/* ---------------- owner badge, animated intro, star reviews ---------------- */
+const OWNER_TEXT="Hello and welcome. I am Eman Fatima, the owner of this website.\n\nI built this assistant for Saira Fashion House so you can check stock, place orders and track parcels at any hour, even after the store closes. Every answer comes from our real catalog and policy. When something needs a human, the assistant says so honestly and passes your case to the team.\n\nI hope your experience here is a good one.";
+let typeTimer=null;
+function typeOwner(){
+  const el=$("#ownerText"); el.textContent=""; let i=0;
+  clearInterval(typeTimer);
+  typeTimer=setInterval(()=>{ el.textContent=OWNER_TEXT.slice(0,++i); if(i>=OWNER_TEXT.length) clearInterval(typeTimer); },14);
+}
+let myStars=0;
+function paintStars(){ $$("#starRow span").forEach(s=>s.classList.toggle("on",Number(s.dataset.s)<=myStars)); }
+$$("#starRow span").forEach(s=>{
+  s.onmouseenter=()=>{ $$("#starRow span").forEach(x=>x.classList.toggle("on",Number(x.dataset.s)<=Number(s.dataset.s))); };
+  s.onmouseleave=paintStars;
+  s.onclick=async()=>{
+    if(!usr()){
+      const n=$("#reviewNote"); n.textContent="First sign in to give a review."; n.style.color="#c22f2f"; n.style.fontWeight="700";
+      setAuthMode("login"); openModal("authModal"); return;
+    }
+    myStars=Number(s.dataset.s); paintStars();
+    try{
+      const u=usr();
+      const d=await api("/api/reviews",{stars:myStars,user_name:u?u.name:null});
+      $("#reviewNote").textContent=`Thank you! You gave ${myStars} star${myStars>1?"s":""}. Overall average is now ${d.summary.average} ★ from ${d.summary.count} review(s).`;
+    }catch(e){ $("#reviewNote").textContent="Review could not be saved. Is the server running?"; }
+  };
+});
+$("#emanBadge").onclick=async()=>{
+  openModal("ownerModal"); typeOwner();
+  try{ const d=await api("/api/reviews"); if(d.count) $("#badgeStars").textContent=`★ ${d.average} · ${d.count} review(s) · tap to meet the owner`; }catch(e){}
+};
+updateAuthUI();
+
+/* ---------------- dark and light mode ---------------- */
+const ICON_MOON='<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M20.6 14.2A8.5 8.5 0 0 1 9.8 3.4a.6.6 0 0 0-.8-.8 10.5 10.5 0 1 0 12.4 12.4.6.6 0 0 0-.8-.8z"/></svg>';
+const ICON_SUN='<svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-15 1.2 3h-2.4zm0 20-1.2-3h2.4zM2 12l3-1.2v2.4zm20 0-3 1.2v-2.4zM4.2 4.2l2.7 1.7-1.7 1.7zm15.6 15.6-2.7-1.7 1.7-1.7zM19.8 4.2 17.1 5.9l1.7 1.7zM4.2 19.8l2.7-1.7-1.7-1.7z" stroke="#fff" stroke-width="1.6"/></svg>';
+function applyTheme(t){
+  document.documentElement.dataset.theme=t;
+  $("#themeBtn").innerHTML=t==="dark"?ICON_SUN:ICON_MOON;
+  localStorage.setItem("f26_theme",t);
+}
+$("#themeBtn").onclick=()=>applyTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+applyTheme(localStorage.getItem("f26_theme")||"light");
+
+/* ---------------- closet sway follows the cursor ---------------- */
+(function(){
+  const gr=$("#garments"); if(!gr) return;
+  const items=$$("#garments .garment");
+  document.querySelector("header").addEventListener("mousemove",e=>{
+    const x=e.clientX/innerWidth-.5;
+    gr.style.transform=`translateX(${x*22}px)`;
+    items.forEach((g,i)=>{g.style.transform=`translateX(${x*(i+1)*5}px)`});
+  });
+})();
+
+</script>
+</body>
+</html>

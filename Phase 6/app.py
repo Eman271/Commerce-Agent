@@ -6,6 +6,7 @@ Then open http://127.0.0.1:8000
 
 The runtime agent is pure stdlib (see agent/); FastAPI only serves HTTP.
 """
+import os
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -18,7 +19,7 @@ from agent.data_store import Store
 from agent.engine import Engine
 
 BASE = Path(__file__).resolve().parent
-store = Store(BASE / "shop.db")
+store = Store(os.environ.get("DB_PATH") or BASE / "shop.db")
 engine = Engine(store)
 
 app = FastAPI(title="Saira Fashion House")
@@ -213,4 +214,5 @@ def reset():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host=os.environ.get("HOST", "127.0.0.1"),
+                port=int(os.environ.get("PORT", "8000")))

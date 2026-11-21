@@ -17,6 +17,16 @@ python app.py
 # open http://127.0.0.1:8000
 ```
 
+### Deploy
+
+- **Render / Railway / Heroku-style hosts:** set the root directory to
+  `Phase 6`, build command `pip install -r requirements.txt`; the `Procfile`
+  starts `uvicorn app:app --host 0.0.0.0 --port $PORT`.
+- **Docker:** `docker build -t f26-07-agent . && docker run -p 8000:8000 f26-07-agent`.
+- Env vars (all optional): `PORT` (default 8000), `HOST` (default 127.0.0.1,
+  only for `python app.py`), `DB_PATH` (default `shop.db` next to `app.py`).
+  The database is re-seeded from `data/` if missing, so an ephemeral disk is fine.
+
 No other setup. The first run creates `shop.db` (SQLite) and loads
 `data/catalog.csv` (572 variants, 50 products) and `data/orders.csv`
 (51 orders) into it. `POST /api/reset` wipes runtime state and re-seeds.

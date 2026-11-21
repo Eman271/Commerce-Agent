@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Runtime database (re-created and seeded from data/ on startup)
+shop.db
+*.db-journal
+
+# Local env / secrets
+.env
